@@ -1,16 +1,33 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+function pathHandler($path)
+{
+    foreach (File::allFiles(__DIR__ . '\\' . $path) as $partial) {
+        require $partial->getPathname();
+    }
+}
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * Auth Routes
+ */
+
+Auth::routes();
+
+/**
+ * Admin Routes
+ */
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
+    pathHandler('admin');
 });
+
+/**
+ * Panel Routes
+ */
+Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'auth'], function () {
+    pathHandler('panel');
+});
+
+/**
+ * Front Routes
+ */
+pathHandler('front');
