@@ -1,0 +1,7 @@
+@function font-color($color) {
+  @if (lightness($color) > 50) {
+    @return #354458;
+  } @else {
+    @return #fff;
+  }
+}

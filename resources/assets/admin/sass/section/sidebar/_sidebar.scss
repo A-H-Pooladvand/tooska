@@ -1,0 +1,72 @@
+.sidebar {
+  width: 250px;
+  background: $blur-2;
+  position: fixed;
+  top: 60px;
+  height: 100%;
+
+  > ul {
+
+    .active {
+      max-height: 300px;
+    }
+
+    li {
+      max-height: 41px;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      @include transition(max-height 500ms ease);
+      overflow: hidden;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        position: relative;
+        display: block;
+        padding: 1rem 0.75rem;
+        background: $blur-2;
+        color: #fff;
+        font-size: 1.4rem;
+
+        &:after {
+          content: '';
+          position: absolute;
+          border-left: 3px solid #00d1b2;
+          top: 0;
+          height: 0;
+          right: 100%;
+          @include translate(100%, 0);
+        }
+
+        &:hover {
+          color: $brand-primary;
+
+          &:after {
+            height: 100%;
+          }
+        }
+
+        i {
+          line-height: inherit;
+        }
+
+        .fa-fw {
+          width: 3rem;
+        }
+      }
+
+      ul {
+
+        li {
+          border-bottom: none;
+
+          a {
+            padding: 1rem 4rem;
+          }
+        }
+      }
+    }
+  }
+}

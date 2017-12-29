@@ -1,5 +1,3 @@
 <?php
 
-Route::get('/', function () {
-    dd('dashboard');
-});
+Route::view('/', 'main.admin.index');

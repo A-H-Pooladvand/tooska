@@ -1,5 +1,3 @@
 <?php
 
-Route::get('/', function () {
-    dd('front dashboard');
-});
+Route::view('/', 'main.front.index')->name('home');

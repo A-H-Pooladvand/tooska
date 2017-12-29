@@ -1,0 +1,26 @@
+html, body, section {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-size: 15px;
+  font-family: Vazir, sans-serif;
+  text-align: justify;
+  background: url(../../../../../public/images/admin/_/blur-bg.jpg) no-repeat;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+p {
+  cursor: default;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
