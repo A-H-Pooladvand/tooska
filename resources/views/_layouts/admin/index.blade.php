@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="{{ config('app.locale') }}">
+<html lang="{{ config('app.locale') }}" dir="rtl">
 
 <head>
     @include('_layouts.admin.includes.styles')
+    @stack('page-styles')
     @stack('styles')
 </head>
 
@@ -16,7 +17,15 @@
     <!-- Sidebar -->
     @include('_layouts.admin.includes.sidebar')
 
-    @yield('content')
+    <div class="container-fluid" id="admin-layout">
+
+        <div class="form-group helper-block">
+            @yield('helper_block')
+        </div>
+
+        @yield('content')
+    </div>
+
 </section>
 
 <footer>
@@ -24,7 +33,9 @@
 </footer>
 
 @include('_layouts.admin.includes.scripts')
+@stack('page-scripts')
 @stack('scripts')
 </body>
 
 </html>
+

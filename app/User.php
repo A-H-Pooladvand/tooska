@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','family','username','mobile','phone','avatar'
     ];
 
     /**
@@ -26,4 +26,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * bcrypt User's Password whenever it wants to save.
+     * @param $password
+     */
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function getCreatedAtAttribute()
+    {
+        return jdate($this->attributes['created_at'])->format('Y/m/d');
+    }
+
+    public function getUpdatedAtAttribute()
+    {
+        return jdate($this->attributes['updated_at'])->format('Y/m/d');
+    }
 }

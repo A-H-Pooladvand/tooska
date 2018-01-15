@@ -21,6 +21,8 @@ $blur-3: rgba(0, 0, 0, 0.3);
 $blur-2: rgba(0, 0, 0, 0.2);
 $blur-1: rgba(0, 0, 0, 0.1);
 
+$white: #fff;
+
 
 $base-color:            #354458;
 $brand-primary:         #00d1b2 !default; // #337ab7
@@ -35,16 +37,17 @@ $brand-danger:          #ff3860 !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff !default;
+$body-bg:               $base-color !default;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            #fff !default;
+
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%) !default;
 //** Link hover decoration.
-$link-hover-decoration: underline !default;
+$link-hover-decoration: none !default;
 
 
 //== Typography
@@ -57,7 +60,7 @@ $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
+$font-size-base:          15px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
@@ -142,9 +145,9 @@ $table-condensed-cell-padding:  5px !default;
 //** Default background color used for all tables.
 $table-bg:                      transparent !default;
 //** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
+$table-bg-accent:               darken($base-color, 10) !default;
 //** Background color used for `.table-hover`.
-$table-bg-hover:                #f5f5f5 !default;
+$table-bg-hover:                darken($base-color, 10) !default;
 $table-bg-active:               $table-bg-hover !default;
 
 //** Border color for table and cell borders.

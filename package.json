@@ -20,5 +20,12 @@
         "lodash": "^4.17.4",
         "vazir-font": "^16.1.0",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "bootstrap-select": "^1.12.4",
+        "datatables.net": "^1.10.16",
+        "datatables.net-bs": "^1.10.16",
+        "tinymce": "^4.7.4",
+        "tinymce-i18n": "^18.1.13"
     }
 }

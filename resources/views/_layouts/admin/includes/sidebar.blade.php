@@ -14,6 +14,17 @@
         </li>
         <li>
             <a href="#">
+                <i class="fa fa-users fa-fw"></i>
+                <span>کاربران</span>
+                <i class="fa fa-angle-down  pull-right"></i>
+            </a>
+            <ul>
+                <li><a href="{{ route('admin.user.create') }}">افزودن کاربر</a></li>
+                <li><a href="{{ route('admin.user.index') }}">لیست کاربران</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
                 <i class="fa fa-tags fa-fw"></i>
                 <span>کلمات کلیدی</span>
                 <i class="fa fa-angle-down  pull-right"></i>
@@ -35,24 +46,3 @@
         </li>
     </ul>
 </div>
-
-@push('scripts')
-    <script type="text/javascript">
-        $(function () {
-            var $sidebarNavigateCheck = true;
-            $('.sidebar__item > li').click(function () {
-                if ($sidebarNavigateCheck) {
-                    $sidebarNavigateCheck = false;
-                    var $this = $(this);
-                    $this.toggleClass('active');
-                    var $icon = $this.find('.pull-right');
-                    if ($icon.hasClass('fa-angle-down'))
-                        $icon.removeClass('fa-angle-down').addClass('fa-angle-up');
-                    else
-                        $icon.removeClass('fa-angle-up').addClass('fa-angle-down');
-                    $sidebarNavigateCheck = true;
-                }
-            });
-        });
-    </script>
-@endpush

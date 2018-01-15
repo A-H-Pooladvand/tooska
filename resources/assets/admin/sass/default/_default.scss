@@ -7,12 +7,11 @@ body {
   font-size: 15px;
   font-family: Vazir, sans-serif;
   text-align: justify;
-  background: url(../../../../../public/images/admin/_/blur-bg.jpg) no-repeat;
-  background-size: cover;
-}
-
-a {
-  text-decoration: none !important;
+/*  background: linear-gradient(to left, $base-color, darken($base-color, 15));
+  background: -moz-linear-gradient(to left, $base-color, darken($base-color, 15));
+  background: -o-linear-gradient(to left, $base-color, darken($base-color, 15));
+  background: -ms-linear-gradient(to left, $base-color, darken($base-color, 15));
+  background: -webkit-linear-gradient(to left, $base-color, darken($base-color, 15));*/
 }
 
 p {

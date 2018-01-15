@@ -1,0 +1,85 @@
+.inline-block {
+  display: inline;
+}
+
+.control-label {
+  font-size: 80%;
+}
+
+.input-group {
+
+  a {
+    border-radius: 0 4px 4px 0 !important;
+  }
+
+  input {
+    border-radius: 4px 0 0 4px !important;
+  }
+}
+
+.bootstrap-select.btn-group .btn .caret {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: auto; /* this line should be added to override the default behavior */
+  margin-top: -2px;
+  vertical-align: middle;
+}
+
+.bootstrap-select {
+  .filter-option {
+    text-align: right !important;
+  }
+}
+
+.bootstrap-select > .dropdown-toggle {
+  padding-left: 25px;
+  padding-right: 15px;
+}
+
+// DataTables
+.dataTables_paginate {
+
+  .paginate_button.previous {
+    a {
+      border-radius: 0 4px 4px 0;
+    }
+  }
+
+  .paginate_button.next {
+    a {
+      border-radius: 4px 0 0 4px;
+    }
+  }
+}
+
+#data_table__grid {
+
+  thead {
+
+    tr {
+
+      th {
+        font-size: 90%;
+
+        &:after {
+          font-size: 60%;
+        }
+      }
+    }
+  }
+
+  tbody {
+
+    tr {
+
+      td {
+        font-size: 80%;
+      }
+    }
+  }
+
+}
+#data_table__grid_processing {
+  color: $gray-base;
+}

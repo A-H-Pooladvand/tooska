@@ -1,4 +1,6 @@
 {
     "/js/admin.js": "/js/admin.js",
-    "/css/admin.css": "/css/admin.css"
+    "/css/admin.css": "/css/admin.css",
+    "/assets/tinymce/tinymce.js": "/assets/tinymce/tinymce.js",
+    "/assets/tinymce/lang s/fa_IR.js": "/assets/tinymce/lang s/fa_IR.js"
 }
