@@ -137,13 +137,17 @@
 
 @section('helper_block')
 
-    <div class="pull-left">
-        <p>Breadcrumb</p>
-    </div>
+    <div class="form-group helper-block">
 
-    <div class="text-right">
-        <button type="button" class="btn btn-primary btn-ajax">ذخیره</button>
-        <a href="#" class="btn btn-danger">انصراف</a>
+        <div class="pull-left">
+            <p>Breadcrumb</p>
+        </div>
+
+        <div class="text-right">
+            <button type="button" class="btn btn-info btn-ajax">ذخیره</button>
+            <a href="{{ route('admin.user.index') }}" class="btn btn-danger">انصراف</a>
+        </div>
+
     </div>
 
 @stop

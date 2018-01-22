@@ -13,3 +13,9 @@ mix.js([
 mix.js('resources/assets/_assets/admin/tinymce/init.js', 'public/assets/tinymce/tinymce.js')
     .copyDirectory('node_modules/tinymce/skins','public/assets/tinymce/skins')
     .copy('node_modules/tinymce-i18n/langs/fa_IR.js','public/assets/tinymce/lang s/fa_IR.js');
+
+// JEasyUi
+mix.js('resources/assets/_assets/admin/easyui/easyui.js', 'public/assets/easyui/easyui.js')
+    .sass('resources/assets/admin/sass/_components/easyui/_init.scss', 'public/assets/easyui/easyui.css')
+    .copy('resources/assets/_assets/admin/easyui/files/filter.png','public/assets/easyui/filter.png')
+    .copyDirectory('resources/assets/_assets/admin/easyui/files/icons','public/assets/easyui/images');

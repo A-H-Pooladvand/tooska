@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.28 on 2017-12-27.
+ * Generated for Laravel 5.5.32 on 2018-01-19.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -2179,6 +2179,17 @@ namespace Illuminate\Support\Facades {
         public static function setEchoFormat($format)
         {
             \Illuminate\View\Compilers\BladeCompiler::setEchoFormat($format);
+        }
+        
+        /**
+         * Set the echo format to double encode entities.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function doubleEncode()
+        {
+            \Illuminate\View\Compilers\BladeCompiler::doubleEncode();
         }
         
         /**
@@ -5819,7 +5830,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string|array $view
          * @param array $data
-         * @return \Illuminate\View\View 
+         * @return string 
          * @static 
          */ 
         public static function render($view, $data = array())
@@ -11206,6 +11217,17 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Get the default named parameters used by the URL generator.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getDefaultParameters()
+        {
+            return \Illuminate\Routing\UrlGenerator::getDefaultParameters();
+        }
+        
+        /**
          * Force the scheme for URLs.
          *
          * @param string $schema
@@ -12251,6 +12273,155 @@ namespace Illuminate\Support\Facades {
         public static function renderTranslation()
         {
             return \Illuminate\View\Factory::renderTranslation();
+        }
+         
+    }
+ 
+}
+
+namespace Intervention\Image\Facades { 
+
+    class Image {
+        
+        /**
+         * Overrides configuration settings
+         *
+         * @param array $config
+         * @static 
+         */ 
+        public static function configure($config = array())
+        {
+            return \Intervention\Image\ImageManager::configure($config);
+        }
+        
+        /**
+         * Initiates an Image instance from different input types
+         *
+         * @param mixed $data
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function make($data)
+        {
+            return \Intervention\Image\ImageManager::make($data);
+        }
+        
+        /**
+         * Creates an empty image canvas
+         *
+         * @param integer $width
+         * @param integer $height
+         * @param mixed $background
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function canvas($width, $height, $background = null)
+        {
+            return \Intervention\Image\ImageManager::canvas($width, $height, $background);
+        }
+        
+        /**
+         * Create new cached image and run callback
+         * (requires additional package intervention/imagecache)
+         *
+         * @param \Closure $callback
+         * @param integer $lifetime
+         * @param boolean $returnObj
+         * @return \Image 
+         * @static 
+         */ 
+        public static function cache($callback, $lifetime = null, $returnObj = false)
+        {
+            return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
+        }
+         
+    }
+ 
+}
+
+namespace Morilog\Jalali\Facades { 
+
+    class jDate {
+        
+        /**
+         * 
+         *
+         * @param string|null $str
+         * @param null $timezone
+         * @return $this 
+         * @static 
+         */ 
+        public static function forge($str = null, $timezone = null)
+        {
+            return \Morilog\Jalali\jDate::forge($str, $timezone);
+        }
+        
+        /**
+         * 
+         *
+         * @return \DateTime|static 
+         * @static 
+         */ 
+        public static function getDateTime()
+        {
+            return \Morilog\Jalali\jDate::getDateTime();
+        }
+        
+        /**
+         * 
+         *
+         * @param $format
+         * @return bool|string 
+         * @static 
+         */ 
+        public static function format($format)
+        {
+            return \Morilog\Jalali\jDate::format($format);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $str
+         * @return $this 
+         * @static 
+         */ 
+        public static function reforge($str)
+        {
+            return \Morilog\Jalali\jDate::reforge($str);
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function ago()
+        {
+            return \Morilog\Jalali\jDate::ago();
+        }
+        
+        /**
+         * 
+         *
+         * @return bool|string 
+         * @static 
+         */ 
+        public static function until()
+        {
+            return \Morilog\Jalali\jDate::until();
+        }
+        
+        /**
+         * 
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function time()
+        {
+            return \Morilog\Jalali\jDate::time();
         }
          
     }
@@ -14369,6 +14540,10 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Image extends \Intervention\Image\Facades\Image {}
+
+    class jDate extends \Morilog\Jalali\Facades\jDate {}
  
 }
 

@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserTableSeeder::class);
         factory(App\User::class, 50)->create();
+        $this->call(LaratrustSeeder::class);
     }
 }

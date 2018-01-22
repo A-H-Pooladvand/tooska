@@ -2,12 +2,21 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes, LaratrustUserTrait;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','family','username','mobile','phone','avatar'
+        'name', 'email', 'password', 'family', 'username', 'mobile', 'phone', 'avatar'
     ];
 
     /**
@@ -45,5 +54,16 @@ class User extends Authenticatable
     public function getUpdatedAtAttribute()
     {
         return jdate($this->attributes['updated_at'])->format('Y/m/d');
+    }
+
+    public function getDeletedAtAttribute()
+    {
+        switch ($this->attributes['deleted_at']) {
+            case !null:
+                return jdate($this->attributes['deleted_at'])->format('Y/m/d');
+                break;
+            default:
+                return null;
+        }
     }
 }

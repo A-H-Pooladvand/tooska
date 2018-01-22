@@ -1,8 +1,6 @@
 #admin-layout {
   margin: 70px 260px 1rem 1rem;
   height: 100%;
-
-  color: font-color($blur-2);
   padding: 1rem;
 
   .error {
@@ -18,9 +16,9 @@
 
     button {
       left: 0;
-      color: font-color($blur-5);
+      color: font-color($base-color);
       opacity: 1;
-      background: $blur-5;
+      background: $base-color;
       width: 20px;
       height: 20px;
       border-radius: 4px;

@@ -19,9 +19,7 @@
 
     <div class="container-fluid" id="admin-layout">
 
-        <div class="form-group helper-block">
-            @yield('helper_block')
-        </div>
+        @yield('helper_block')
 
         @yield('content')
     </div>

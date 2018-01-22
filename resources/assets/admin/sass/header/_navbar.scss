@@ -6,6 +6,8 @@
   @include box-shadow(2px 0 3px rgba(0, 0, 0, .5));
   line-height: 60px;
   padding-left: 1rem;
+  background: $base-color;
+  z-index: 1000;
 
   .profile {
     img {

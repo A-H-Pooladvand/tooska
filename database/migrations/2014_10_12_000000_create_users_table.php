@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar', 100)->nullable();
             $table->string('email', 100)->unique();
             $table->string('password', 150);
+            $table->softDeletes();
+            $table->enum('status', ['active', 'deactivate', 'suspended'])->comment('فعال، غیر فعال، معلق شده')->default('active');
             $table->rememberToken();
             $table->timestamps();
         });

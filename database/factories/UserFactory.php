@@ -9,7 +9,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'family' => $faker->lastName,
         'username' => $faker->userName,
-        'mobile' => $faker->phoneNumber,
+        'mobile' => $faker->mobileNumber,
         'phone' => $faker->phoneNumber,
         'avatar' => 'files/_test/' . rand(1, 10) . '.jpg',
         'email' => $faker->unique()->safeEmail,

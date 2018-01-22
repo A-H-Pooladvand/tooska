@@ -1,4 +1,7 @@
 <?php
+/**
+ * Created by Amirhossein Pooladvand
+ */
 
 namespace App\Http\Controllers\User\Admin;
 
@@ -8,10 +11,6 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    /**
-     * Created by Amirhossein Pooladvand
-     */
-
     public function index()
     {
         return view('user.admin.index');
@@ -19,37 +18,13 @@ class UserController extends Controller
 
     public function items(Request $request)
     {
-        $columns = $request['columns'];
-        $order = $request['order'];
+        $users = User::withTrashed()->select('id', 'name', 'family', 'username', 'mobile', 'created_at', 'deleted_at');
 
-        $requestedOrderColumn = $columns[$order[0]['column']]['data'];
-        $requestedOrderDir = $order[0]['dir'];
-
-        $draw = intval($request['draw']);
-
-        $start = $request['start'];
-
-        $length = $request['length'];
-
-        $users = User::orderBy($requestedOrderColumn, $requestedOrderDir);
-
-        $total = $users->count();
-
-        $users = $users->skip($start)->take($length);
-
-        return [
-            'draw' => $draw,
-            "recordsTotal" => $total,
-            "recordsFiltered" => $total,
-            'data' => $users->get()->each(function ($item) {
-//                $item->created_at = $item->created_at_fa;
-//                $item->updated_at = $item->updated_at_fa;
-            })];
+        return $this->getGrid($request)->items($users);
     }
 
     public function create()
     {
-
         return view('user.admin.form');
     }
 
@@ -64,6 +39,7 @@ class UserController extends Controller
 
     public function show($id)
     {
+        return User::withTrashed()->findOrFail($id);
         return view('user.admin.show');
     }
 
@@ -81,7 +57,23 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        //
+        $ids = explode(',', $id);
+
+        User::withTrashed()->whereIn('id', $ids)->forceDelete();
+    }
+
+    public function softDestroy($id)
+    {
+        $ids = explode(',', $id);
+
+        $users = User::withTrashed()->findMany($ids);
+
+        foreach ($users as $user) {
+            if ($user->deleted_at === null)
+                $user->delete();
+            else
+                $user->restore();
+        }
     }
 
     // Methods

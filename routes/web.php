@@ -16,7 +16,7 @@ Auth::routes();
 /**
  * Admin Routes
  */
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'role:superAdmin|admin|client'], function () {
     pathHandler('admin');
 });
 
