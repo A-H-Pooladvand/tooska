@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\_Controller\Grid;
 
-
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class Filter
@@ -22,10 +22,10 @@ class Filter
 
     /**
      * @param \Illuminate\Http\Request
-     * @param array $query
-     * @return array
+     * @param Builder $query
+     * @return Builder
      */
-    protected function filter(Request $request, $query)
+    protected function filter(Request $request, Builder $query)
     {
         $this->filter = json_decode($request['filterRules'], true);
 

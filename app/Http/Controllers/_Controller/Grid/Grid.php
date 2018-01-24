@@ -6,6 +6,7 @@
 namespace App\Http\Controllers\_Controller\Grid;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class Grid extends Filter
@@ -66,10 +67,10 @@ class Grid extends Filter
     /**
      * Prepare query for JEasyUi grid table
      *
-     * @param array $query
+     * @param Builder $query
      * @return array
      */
-    public function items($query)
+    public function items(Builder $query)
     {
         $this->page = $this->request['page'];
         $this->rows = $this->request['rows'];
@@ -91,10 +92,10 @@ class Grid extends Filter
      * If there is an order request from the client, we order
      * and return the ordered query to user otherwise we return the query
      *
-     * @param array $query
+     * @param Builder $query
      * @return mixed
      */
-    public function order($query)
+    public function order(Builder $query)
     {
         $this->order = $this->request['order'];
         $this->sort = $this->request['sort'];

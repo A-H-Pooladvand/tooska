@@ -21,6 +21,10 @@
             <ul>
                 <li><a href="{{ route('admin.user.create') }}">افزودن کاربر</a></li>
                 <li><a href="{{ route('admin.user.index') }}">لیست کاربران</a></li>
+                <li><a href="{{ route('admin.permission.create') }}">افزودن دسترسی</a></li>
+                <li><a href="{{ route('admin.permission.index') }}">لیست دسترسی ها</a></li>
+                <li><a href="{{ route('admin.role.create') }}">افزودن نقش</a></li>
+                <li><a href="{{ route('admin.role.index') }}">لیست نقش ها</a></li>
             </ul>
         </li>
         <li>

@@ -67,7 +67,7 @@ return [
     'not_in'               => 'The selected :attribute is invalid.',
     'numeric'              => 'The :attribute must be a number.',
     'present'              => 'The :attribute field must be present.',
-    'regex'                => 'The :attribute format is invalid.',
+    'regex'                => 'فرمت فیلد :attribute نامعتبر است',
     'required'             => 'تکمیل فیلد :attribute اجباری است',
     'required_if'          => 'The :attribute field is required when :other is :value.',
     'required_unless'      => 'The :attribute field is required unless :other is in :values.',
@@ -124,6 +124,8 @@ return [
         'phone' => 'تلفن ثابت',
         'email' => 'ایمیل',
         'password' => 'رمز عبور',
+        'description' => 'توضیحات',
+        'display_name' => 'نام نمایشی',
     ],
 
 ];
