@@ -96,7 +96,7 @@ class LaratrustTableSeeder extends Seeder
                 'description' => 'توانایی مشاهده کاربران',
             ],
             [
-                'name' => 'update-user',
+                'name' => 'edit-user',
                 'display_name' => 'ویرایش کاربران',
                 'description' => 'توانایی ویرایش کاربران',
             ],
@@ -117,7 +117,7 @@ class LaratrustTableSeeder extends Seeder
                 'description' => 'توانایی مشاهده نقش ها و دسترسی ها',
             ],
             [
-                'name' => 'update-acl',
+                'name' => 'edit-acl',
                 'display_name' => 'ویرایش نقش ها و دسترسی ها',
                 'description' => 'توانایی ویرایش نقش ها و دسترسی ها',
             ],
@@ -138,7 +138,7 @@ class LaratrustTableSeeder extends Seeder
                 'description' => 'توانایی مشاهده بلاگ',
             ],
             [
-                'name' => 'update-blog',
+                'name' => 'edit-blog',
                 'display_name' => 'ویرایش بلاگ',
                 'description' => 'توانایی ویرایش بلاگ',
             ],
@@ -159,7 +159,7 @@ class LaratrustTableSeeder extends Seeder
                 'description' => 'توانایی مشاهده تگ',
             ],
             [
-                'name' => 'update-tag',
+                'name' => 'edit-tag',
                 'display_name' => 'ویرایش تگ',
                 'description' => 'توانایی ویرایش تگ',
             ],
@@ -180,7 +180,7 @@ class LaratrustTableSeeder extends Seeder
                 'description' => 'توانایی مشاهده نظر',
             ],
             [
-                'name' => 'update-comment',
+                'name' => 'edit-comment',
                 'display_name' => 'ویرایش نظر',
                 'description' => 'توانایی ویرایش نظر',
             ],
@@ -201,7 +201,7 @@ class LaratrustTableSeeder extends Seeder
                 'description' => 'توانایی مشاهده دسته بندی',
             ],
             [
-                'name' => 'update-category',
+                'name' => 'edit-category',
                 'display_name' => 'ویرایش دسته بندی',
                 'description' => 'توانایی ویرایش دسته بندی',
             ],

@@ -8,7 +8,7 @@ Route::group(['prefix' => 'blogs', 'as' => 'blog.', 'namespace' => 'Blog\Admin']
     Route::post('/', 'BlogController@store')->name('store')->middleware('permission:create-blog');
     Route::get('{id}', 'BlogController@show')->name('show')->middleware('permission:read-blog');
     Route::get('edit/{id}', 'BlogController@edit')->name('edit')->middleware('permission:edit-blog');
-    Route::put('{id}', 'BlogController@update')->name('update')->middleware('permission:update-blog');
+    Route::put('{id}', 'BlogController@update')->name('update')->middleware('permission:edit-blog');
     Route::delete('{id}', 'BlogController@destroy')->name('destroy')->middleware('permission:delete-blog');
 
 });

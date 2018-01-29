@@ -8,7 +8,7 @@ Route::group(['prefix' => 'users', 'as' => 'user.', 'namespace' => 'User\Admin']
     Route::post('/', 'UserController@store')->name('store')->middleware('permission:create-user');
     Route::get('{id}', 'UserController@show')->name('show')->middleware('permission:read-user');
     Route::get('edit/{id}', 'UserController@edit')->name('edit')->middleware('permission:edit-user');
-    Route::put('{id}', 'UserController@update')->name('update')->middleware('permission:update-user');
+    Route::put('{id}', 'UserController@update')->name('update')->middleware('permission:edit-user');
     Route::delete('soft/{id}', 'UserController@softDestroy')->name('soft.destroy')->middleware('permission:delete-user');
     Route::delete('{id}', 'UserController@destroy')->name('destroy')->middleware('permission:delete-user');
 

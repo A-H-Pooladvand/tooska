@@ -13,8 +13,8 @@ Route::group(['prefix' => 'tags', 'as' => 'tag.', 'namespace' => 'Tag\Admin'], f
     Route::get('create', 'TagController@create')->name('create')->middleware('permission:create-tag');
     Route::post('/', 'TagController@store')->name('store')->middleware('permission:create-tag');
     Route::get('{id}', 'TagController@show')->name('show')->middleware('permission:read-tag');
-    Route::get('edit/{id}', 'TagController@edit')->name('edit')->middleware('permission:update-tag');
-    Route::put('{id}', 'TagController@update')->name('update')->middleware('permission:update-tag');
+    Route::get('edit/{id}', 'TagController@edit')->name('edit')->middleware('permission:edit-tag');
+    Route::put('{id}', 'TagController@update')->name('update')->middleware('permission:edit-tag');
     Route::delete('{id}', 'TagController@destroy')->name('destroy')->middleware('permission:delete-tag');
 
     Route::group(['prefix' => 'search', 'as' => 'search.', 'namespace' => 'Search'], function () {
