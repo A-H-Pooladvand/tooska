@@ -2,7 +2,7 @@
 
 function pathHandler($path)
 {
-    foreach (File::allFiles(__DIR__ . '\\' . $path) as $partial) {
+    foreach (File::allFiles(__DIR__ . '/' . $path) as $partial) {
         require $partial->getPathname();
     }
 }
