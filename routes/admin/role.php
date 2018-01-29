@@ -8,14 +8,14 @@
 
 Route::group(['prefix' => 'roles', 'as' => 'role.', 'namespace' => 'User\Admin\Role'], function () {
 
-    Route::get('/', 'RoleController@index')->name('index');
-    Route::any('items', 'RoleController@items')->name('items');
-    Route::get('create', 'RoleController@create')->name('create');
-    Route::post('/', 'RoleController@store')->name('store');
-    Route::get('{id}', 'RoleController@show')->name('show');
-    Route::get('edit/{id}', 'RoleController@edit')->name('edit');
-    Route::put('{id}', 'RoleController@update')->name('update');
-    Route::delete('soft/{id}', 'RoleController@softDestroy')->name('soft.destroy');
-    Route::delete('{id}', 'RoleController@destroy')->name('destroy');
+    Route::get('/', 'RoleController@index')->name('index')->middleware('permission:read-acl');
+    Route::any('items', 'RoleController@items')->name('items')->middleware('permission:read-acl');
+    Route::get('create', 'RoleController@create')->name('create')->middleware('permission:create-acl');
+    Route::post('/', 'RoleController@store')->name('store')->middleware('permission:create-acl');
+    Route::get('{id}', 'RoleController@show')->name('show')->middleware('permission:read-acl');
+    Route::get('edit/{id}', 'RoleController@edit')->name('edit')->middleware('permission:update-acl');
+    Route::put('{id}', 'RoleController@update')->name('update')->middleware('permission:update-acl');
+    Route::delete('soft/{id}', 'RoleController@softDestroy')->name('soft.destroy')->middleware('permission:delete-acl');
+    Route::delete('{id}', 'RoleController@destroy')->name('destroy')->middleware('permission:delete-acl');
 
 });

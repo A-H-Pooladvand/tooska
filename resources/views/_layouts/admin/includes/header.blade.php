@@ -2,7 +2,7 @@
     <a href="#" class="pull-left text-center brand-name">i<span>TOOSKA.</span>i<span>R</span></a>
 
     <div class="dropdown pull-right profile">
-        <img width="45" height="45" src="{{ asset('files/admin/images/_/user.png') }}" class="dropdown-toggle"
+        <img width="45" height="45" src="{{ asset('files/_test/9.jpg') }}" class="dropdown-toggle"
              data-toggle="dropdown">
         <ul class="dropdown-menu">
             <li>
@@ -30,5 +30,7 @@
             </li>
         </ul>
     </div>
+
+    <span class="pull-right"> {{ Auth::user()->fullName() }} </span>
 
 </nav>

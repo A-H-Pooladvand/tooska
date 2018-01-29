@@ -5,6 +5,8 @@
 
 namespace App\Http\Controllers\User\Admin;
 
+use App\Permission;
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,14 +27,25 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('user.admin.form');
+        $roles = Role::get();
+
+        $permissions = Permission::get(['id', 'display_name']);
+
+        $form = ['action' => route('admin.user.store')];
+
+        return view('user.admin.form', compact('roles', 'form', 'permissions'));
     }
 
     public function store(Request $request)
     {
-        $this->validate($request, $this->validator());
+        $this->validate($request, $this->validator($request));
 
-        User::create($this->fields($request));
+        $user = User::create($this->fields($request));
+
+        $user->attachRoles($request['roles']);
+
+        if ( ! empty($request['permissions']))
+            $user->attachPermissions($request['permissions']);
 
         return ['message' => 'کاربر جدید با موفقیت ثبت شد.'];
     }
@@ -45,19 +58,41 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        return view('user.admin.form');
+        $user = User::findOrFail($id);
+
+        $userPermissions = $user->permissions()->get()->pluck('id')->toArray();
+
+        $permissions = Permission::get(['id', 'display_name']);
+
+        $form = [
+            'action' => route('admin.user.update', $user['id']),
+            'method' => 'PUT'
+        ];
+
+        $roles = Role::get(['id', 'display_name']);
+
+        $userRoles = $user->roles()->get()->pluck('id')->toArray();
+
+        return view('user.admin.form', compact('userRoles', 'user', 'roles', 'form', 'permissions', 'userPermissions'));
     }
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, $this->validator());
+        $user = User::find($id);
+        $this->validate($request, $this->validator($request, $user));
+        $user->update($this->fields($request, $user));
+        $user->syncRoles($request['roles']);
+        $user->syncPermissions($request['permissions']);
 
-        User::findOrFail($id)->update($this->fields($request));
+        return ['message' => 'کاربر با موفقیت ویرایش گردید.'];
     }
 
     public function destroy($id)
     {
         $ids = explode(',', $id);
+
+        if ($this->preventUserToDeleteSuperAdmins($ids))
+            return ['error' => 'شما اجازه حذف کاربران برتر را ندارید'];
 
         User::withTrashed()->whereIn('id', $ids)->forceDelete();
     }
@@ -65,6 +100,16 @@ class UserController extends Controller
     public function softDestroy($id)
     {
         $ids = explode(',', $id);
+
+        if ($this->preventUserToDeleteSuperAdmins($ids))
+            return ['error' => 'شما اجازه معلق کردن کاربران برتر را ندارید'];
+
+
+        try {
+            Role::whereIn('id', $ids)->delete();
+        } catch (\Exception $e) {
+            return $e;
+        }
 
         $users = User::withTrashed()->findMany($ids);
 
@@ -78,9 +123,9 @@ class UserController extends Controller
 
     // Methods
 
-    protected function validator()
+    protected function validator(Request $request, User $user = null)
     {
-        return [
+        $rules = [
             'name' => 'required|string|max:100',
             'family' => 'string|max:100',
             'username' => 'string|max:100',
@@ -88,11 +133,18 @@ class UserController extends Controller
             'phone' => 'string|max:100',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required'
+            'roles' => 'required|array',
         ];
+
+        if ($request->method() === 'PUT') {
+            $rules['email'] = 'required|string|email|max:255|unique:users,email,' . $user->id;
+            $rules['password'] = 'nullable|string|min:6|confirmed';
+        }
+
+        return $rules;
     }
 
-    protected function fields(Request $request)
+    protected function fields(Request $request, User $user = null)
     {
         return [
             'name' => $request['name'],
@@ -101,8 +153,20 @@ class UserController extends Controller
             'email' => $request['email'],
             'mobile' => $request['mobile'],
             'phone' => $request['phone'],
-            'password' => $request['password'],
-            'avatar' => $request['avatar']
+            'password' => $request['password'] === null ? $user->password : $request['password'],
+            'avatar' => $request['avatar'] === null ? $user->avatar : $request['avatar']
         ];
+    }
+
+    private function preventUserToDeleteSuperAdmins($ids)
+    {
+        $super_admin_ids = [1, 2, 3];
+
+        foreach ($super_admin_ids as $item) {
+            if (in_array($item, $ids))
+                return true;
+        }
+
+        return false;
     }
 }

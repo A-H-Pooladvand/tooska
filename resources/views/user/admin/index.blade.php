@@ -61,7 +61,11 @@
                     iconCls: 'fa fa-trash-o',
                     handler: function () {
                         if (confirm('آیا از حذف این رکورد(ها) مطمئن هستید؟')) {
-                            $.post('{{ route('admin.user.index') }}' + '/' + ids(), {_method: 'delete'}).done(function () {
+                            $.post('{{ route('admin.user.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
+
+                                if (response['error'])
+                                    alert(response['error']);
+
                                 $('#dg').datagrid('reload');
                             });
                         }
@@ -70,13 +74,13 @@
                 ]
             });
 
-            dataGrid.datagrid('enableFilter', [
+            dataGrid.datagrid('enableFilter'/*, [
                 {
                     field: 'name',
                     type: 'text',
                     options: {precision: 1},
                     op: ['equal', 'notequal', 'beginwith', 'endwith', 'less', 'lessorequal', 'greater', 'greaterorequal']
-                }]);
+                }]*/);
 
 
             function id() {
@@ -96,7 +100,7 @@
 
 @stop
 
-@section('helper_block')
+{{--@section('helper_block')
     <div class="form-group helper-block">
         <div class="pull-left">
             <p>Breadcrumb</p>
@@ -107,4 +111,4 @@
             <a href="{{ route('admin.user.index') }}" class="btn btn-danger">انصراف</a>
         </div>
     </div>
-@stop
+@stop--}}

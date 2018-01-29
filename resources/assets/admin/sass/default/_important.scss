@@ -9,11 +9,11 @@
 .input-group {
 
   a {
-    border-radius: 0 4px 4px 0 !important;
+    border-radius: 0 $border-radius-base $border-radius-base 0 !important;
   }
 
   input {
-    border-radius: 4px 0 0 4px !important;
+    border-radius: $border-radius-base 0 0 $border-radius-base !important;
   }
 }
 
@@ -52,4 +52,21 @@
   .datagrid-filter-btn {
     padding: 5px 7px 0 0;
   }
+}
+
+// Fixing Input-Groups
+.input-group {
+
+  .input-group-addon {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid;
+    border-radius: 0 $border-radius-base $border-radius-base 0;
+  }
+}
+
+// Selectize
+
+.selectize-control.multi .selectize-input > div {
+  background: $brand-info !important;
+  color: font-color($brand-info) !important;
 }

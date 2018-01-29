@@ -36,6 +36,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    /**
+     * Returns user's full name
+     *
+     * @return string
+     */
+    public function fullName()
+    {
+        return $this->name . ' ' . $this->family;
+    }
+
     /**
      * bcrypt User's Password whenever it wants to save.
      * @param $password

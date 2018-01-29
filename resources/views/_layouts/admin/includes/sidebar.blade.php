@@ -21,10 +21,19 @@
             <ul>
                 <li><a href="{{ route('admin.user.create') }}">افزودن کاربر</a></li>
                 <li><a href="{{ route('admin.user.index') }}">لیست کاربران</a></li>
-                <li><a href="{{ route('admin.permission.create') }}">افزودن دسترسی</a></li>
-                <li><a href="{{ route('admin.permission.index') }}">لیست دسترسی ها</a></li>
                 <li><a href="{{ route('admin.role.create') }}">افزودن نقش</a></li>
                 <li><a href="{{ route('admin.role.index') }}">لیست نقش ها</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-newspaper-o fa-fw"></i>
+                <span>بلاگ</span>
+                <i class="fa fa-angle-down  pull-right"></i>
+            </a>
+            <ul>
+                <li><a href="{{ route('admin.blog.create') }}">افزودن خبر بلاگ</a></li>
+                <li><a href="{{ route('admin.blog.index') }}">لیست اخبار بلاگ</a></li>
             </ul>
         </li>
         <li>

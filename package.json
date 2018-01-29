@@ -23,6 +23,8 @@
     },
     "dependencies": {
         "bootstrap-select": "^1.12.4",
+        "md.bootstrappersiandatetimepicker": "^2.2.0",
+        "selectize": "^0.12.4",
         "tinymce": "^4.7.4",
         "tinymce-i18n": "^18.1.13"
     }

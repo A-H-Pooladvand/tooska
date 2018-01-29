@@ -1,7 +1,5 @@
 <?php
 
-
-
 function pathHandler($path)
 {
     foreach (File::allFiles(__DIR__ . '\\' . $path) as $partial) {
@@ -18,7 +16,7 @@ Auth::routes();
 /**
  * Admin Routes
  */
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'role:superAdmin|admin|client'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'permission:admin-panel'], function () {
     pathHandler('admin');
 });
 

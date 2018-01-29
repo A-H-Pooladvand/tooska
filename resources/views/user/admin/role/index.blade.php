@@ -15,12 +15,11 @@
                     {field: 'checkbox', checkbox: true},
                     {field: 'id', sortable: true, title: 'شناسه', align: 'center'},
                     {
-                        field: 'name', sortable: true, title: 'نامک', align: 'center',
+                        field: 'display_name', sortable: true, title: 'عنوان', align: 'center',
                         formatter: function (val, row) {
                             return '<a href="' + '{{ route('admin.role.index') }}' + '/' + row.id + '" target="_blank">' + val + '</a>';
                         }
                     },
-                    {field: 'display_name', sortable: true, title: 'نام نمایشی', align: 'center'},
                     {field: 'description', sortable: true, title: 'توضیحات', align: 'center'},
                     {field: 'created_at', sortable: true, title: 'تاریخ ایجاد', align: 'center'},
                     {field: 'updated_at', sortable: true, title: 'تاریخ ویرایش', align: 'center'},
@@ -40,19 +39,15 @@
                         window.open('{{ route('admin.role.index') }}' + '/' + 'edit' + '/' + id(), '_blank');
                     }
                 }, '-', {
-                    text: 'معلق/غیر معلق',
-                    iconCls: 'fa fa-ban',
-                    handler: function () {
-                        $.post('{{ route('admin.role.index') }}' + '/' + 'soft' + '/' + ids(), {_method: 'delete'}).done(function () {
-                            $('#dg').datagrid('reload');
-                        });
-                    }
-                }, '-', {
                     text: 'حذف',
                     iconCls: 'fa fa-trash-o',
                     handler: function () {
                         if (confirm('آیا از حذف این رکورد(ها) مطمئن هستید؟')) {
-                            $.post('{{ route('admin.role.index') }}' + '/' + ids(), {_method: 'delete'}).done(function () {
+                            $.post('{{ route('admin.role.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
+
+                                if (response['error'])
+                                    alert(response['error']);
+
                                 $('#dg').datagrid('reload');
                             });
                         }

@@ -14,6 +14,12 @@ class LaratrustTableSeeder extends Seeder
      */
     public function run()
     {
+        Role::create([
+            'name' => 'none',
+            'display_name' => 'بدون نقش',
+            'description' => 'هیچ نقشی ندارد'
+        ]);
+
         $accounts = [
             [
                 'user' => [
@@ -47,7 +53,7 @@ class LaratrustTableSeeder extends Seeder
                 ],
                 'role' => [
                     'name' => 'supporter',
-                    'display_name' => 'پشتیبان های سایت',
+                    'display_name' => 'پشتیبان سایت',
                     'description' => 'دسترسی تقریبی به تمامی امکانات سایت',
                 ]
             ],
@@ -65,13 +71,19 @@ class LaratrustTableSeeder extends Seeder
                 ],
                 'role' => [
                     'name' => 'admin',
-                    'display_name' => 'ادمین کل سایت',
+                    'display_name' => 'صاحب سیستم',
                     'description' => 'خریدار سایت - دسترسی کل و دسترسی ایجاد نقش ها',
                 ]
             ]
         ];
 
         $permissions = [
+            // Admin Panel Access
+            [
+                'name' => 'admin-panel',
+                'display_name' => 'پنل مدیریت',
+                'description' => 'توانایی مشاهده پنل مدیریت',
+            ],
             // User
             [
                 'name' => 'create-user',
@@ -113,6 +125,90 @@ class LaratrustTableSeeder extends Seeder
                 'name' => 'delete-acl',
                 'display_name' => 'حذف نقش ها و دسترسی ها',
                 'description' => 'توانایی حذف نقش ها و دسترسی ها',
+            ],
+            // Blog
+            [
+                'name' => 'create-blog',
+                'display_name' => 'ایجاد بلاگ',
+                'description' => 'توانایی ایجاد بلاگ',
+            ],
+            [
+                'name' => 'read-blog',
+                'display_name' => 'مشاهده بلاگ',
+                'description' => 'توانایی مشاهده بلاگ',
+            ],
+            [
+                'name' => 'update-blog',
+                'display_name' => 'ویرایش بلاگ',
+                'description' => 'توانایی ویرایش بلاگ',
+            ],
+            [
+                'name' => 'delete-blog',
+                'display_name' => 'حذف بلاگ',
+                'description' => 'توانایی حذف بلاگ',
+            ],
+            // Tag
+            [
+                'name' => 'create-tag',
+                'display_name' => 'ایجاد تگ',
+                'description' => 'توانایی ایجاد تگ',
+            ],
+            [
+                'name' => 'read-tag',
+                'display_name' => 'مشاهده تگ',
+                'description' => 'توانایی مشاهده تگ',
+            ],
+            [
+                'name' => 'update-tag',
+                'display_name' => 'ویرایش تگ',
+                'description' => 'توانایی ویرایش تگ',
+            ],
+            [
+                'name' => 'delete-tag',
+                'display_name' => 'حذف تگ',
+                'description' => 'توانایی حذف تگ',
+            ],
+            // Comment
+            [
+                'name' => 'create-comment',
+                'display_name' => 'ایجاد نظر',
+                'description' => 'توانایی ایجاد نظر',
+            ],
+            [
+                'name' => 'read-comment',
+                'display_name' => 'مشاهده نظر',
+                'description' => 'توانایی مشاهده نظر',
+            ],
+            [
+                'name' => 'update-comment',
+                'display_name' => 'ویرایش نظر',
+                'description' => 'توانایی ویرایش نظر',
+            ],
+            [
+                'name' => 'delete-comment',
+                'display_name' => 'حذف نظر',
+                'description' => 'توانایی حذف نظر',
+            ],
+            // Comment
+            [
+                'name' => 'create-category',
+                'display_name' => 'ایجاد دسته بندی',
+                'description' => 'توانایی ایجاد دسته بندی',
+            ],
+            [
+                'name' => 'read-category',
+                'display_name' => 'مشاهده دسته بندی',
+                'description' => 'توانایی مشاهده دسته بندی',
+            ],
+            [
+                'name' => 'update-category',
+                'display_name' => 'ویرایش دسته بندی',
+                'description' => 'توانایی ویرایش دسته بندی',
+            ],
+            [
+                'name' => 'delete-category',
+                'display_name' => 'حذف دسته بندی',
+                'description' => 'توانایی حذف دسته بندی',
             ]
         ];
 
@@ -128,11 +224,8 @@ class LaratrustTableSeeder extends Seeder
 
             $user->attachRole($role['id']);
 
-
             $user->attachPermissions($permissions);
         }
-
-
 
     }
 }
