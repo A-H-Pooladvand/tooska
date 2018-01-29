@@ -178,6 +178,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 
         /*
          * Application Service Providers...
