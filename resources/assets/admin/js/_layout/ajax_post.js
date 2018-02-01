@@ -3,7 +3,8 @@ $(function () {
         // Select the form
         let $form = $('#admin-layout').find('#form');
         let $formAction = $form.attr('action');
-        if (window.tinyMCE)
+
+        if ('undefined' !== typeof window.tinyMCE) {
             tinyMCE.triggerSave();
 
         $.post($formAction, $form.serialize()).done(function (response) {
