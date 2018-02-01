@@ -3,16 +3,17 @@ $(function () {
         // Select the form
         let $form = $('#admin-layout').find('#form');
         let $formAction = $form.attr('action');
-        tinyMCE.triggerSave();
+        if (window.tinyMCE)
+            tinyMCE.triggerSave();
 
         $.post($formAction, $form.serialize()).done(function (response) {
 
             // Something went wrong in checking and validating
             if (response['error'])
                 $form.find('alert error-response').remove();
-                $form.append(
-                    '<div class="alert alert-danger error-response">' + response['error'] + '</div>'
-                );
+            $form.append(
+                '<div class="alert alert-danger error-response">' + response['error'] + '</div>'
+            );
 
             // Successful Response
             if (response['message']) {
