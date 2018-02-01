@@ -14707,7 +14707,7 @@ $(function () {
         var $form = $('#admin-layout').find('#form');
         var $formAction = $form.attr('action');
 
-        if ('undefined' !== typeof window.tinyMCE) {
+        if ('undefined' !== typeof window.tinyMCE)
             tinyMCE.triggerSave();
 
         $.post($formAction, $form.serialize()).done(function (response) {
