@@ -15,8 +15,8 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->mediumIncrements('id');
-            $table->unsignedMediumInteger('user_id')->comment('شناسه نویسنده');
-            $table->unsignedMediumInteger('category_id');
+            $table->unsignedMediumInteger('user_id')->index()->comment('شناسه نویسنده');
+            $table->unsignedMediumInteger('category_id')->index();
             $table->enum('status', ['publish', 'draft'])->default('publish')->comment('منتشر شده یا پیشنویس');
             $table->string('title', 100);
             $table->string('image', 100);

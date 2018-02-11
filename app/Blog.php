@@ -13,9 +13,14 @@ class Blog extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
@@ -24,5 +29,31 @@ class Blog extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    public function getCreatedAtAttribute()
+    {
+        return jdate($this->attributes['created_at'])->format('Y/m/d');
+    }
+
+    public function getUpdatedAtAttribute()
+    {
+        return jdate($this->attributes['updated_at'])->format('Y/m/d');
+    }
+
+    public function getPublishAtFaAttribute()
+    {
+        return jdate($this->attributes['publish_at'])->format('Y/m/d');
+    }
+
+    public function getStatusFaAttribute()
+    {
+        switch ($this->attributes['status']) {
+            case 'publish':
+                return 'منتشر شده';
+                break;
+            default:
+                return 'پیش نویس';
+        }
     }
 }

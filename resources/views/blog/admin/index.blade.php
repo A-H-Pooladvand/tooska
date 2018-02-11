@@ -10,29 +10,26 @@
     @push('scripts')
         <script>
             let dataGrid = $('#dg').datagrid({
-                url: '{{ route('admin.user.items') }}',
+                title: '&nbsp;لیست اخبار بلاگ',
+                url: '{{ route('admin.blog.items') }}',
                 columns: [[
                     {field: 'checkbox', checkbox: true},
                     {field: 'id', sortable: true, title: 'شناسه', align: 'center'},
                     {
-                        field: 'name', sortable: true, title: 'نام', align: 'center',
+                        field: 'title', sortable: true, title: 'عنوان', align: 'center',
                         formatter: function (val, row) {
-                            return '<a href="' + '{{ route('admin.user.index') }}' + '/' + row.id + '" target="_blank">' + val + '</a>';
+                            return '<a href="' + '{{ route('admin.blog.index') }}' + '/' + row.id + '" target="_blank">' + val + '</a>';
                         }
                     },
-                    {field: 'family', sortable: true, title: 'نام خانوادگی', align: 'center'},
-                    {field: 'username', sortable: true, title: 'نام کاربری', align: 'center'},
-                    {field: 'mobile', sortable: true, title: 'موبایل', align: 'center'},
+                    {field: 'summary', sortable: true, title: 'خلاصه', align: 'center'},
                     {
-                        field: 'deleted_at', sortable: true, title: 'تاریخ معلق شدن', align: 'center',
+                        field: 'status', sortable: true, title: 'وضعیت', align: 'center',
                         formatter: function (val, row) {
-                            if (val === null)
-                                return 'فعال';
-                            else
-                                return val;
+                            return row.status_farsi;
                         }
                     },
                     {field: 'created_at', sortable: true, title: 'تاریخ ایجاد', align: 'center'},
+                    {field: 'updated_at', sortable: true, title: 'تاریخ ویرایش', align: 'center'},
                 ]],
 
                 // singleSelect: true,
@@ -40,28 +37,20 @@
                     text: 'نمایش',
                     iconCls: 'fa fa-eye',
                     handler: function () {
-                        window.open('{{ route('admin.user.index') }}' + '/' + id(), '_blank');
+                        window.open('{{ route('admin.blog.index') }}' + '/' + id(), '_blank');
                     }
                 }, '-', {
                     text: 'ویرایش',
                     iconCls: 'fa fa-pencil',
                     handler: function () {
-                        window.open('{{ route('admin.user.index') }}' + '/' + 'edit' + '/' + id(), '_blank');
-                    }
-                }, '-', {
-                    text: 'معلق/غیر معلق',
-                    iconCls: 'fa fa-ban',
-                    handler: function () {
-                        $.post('{{ route('admin.user.index') }}' + '/' + 'soft' + '/' + ids(), {_method: 'delete'}).done(function () {
-                            $('#dg').datagrid('reload');
-                        });
+                        window.open('{{ route('admin.blog.index') }}' + '/' + 'edit' + '/' + id(), '_blank');
                     }
                 }, '-', {
                     text: 'حذف',
                     iconCls: 'fa fa-trash-o',
                     handler: function () {
                         if (confirm('آیا از حذف این رکورد(ها) مطمئن هستید؟')) {
-                            $.post('{{ route('admin.user.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
+                            $.post('{{ route('admin.blog.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
 
                                 if (response['error'])
                                     alert(response['error']);
@@ -74,27 +63,21 @@
                 ]
             });
 
-            dataGrid.datagrid('enableFilter'/*, [
-                {
-                    field: 'name',
-                    type: 'text',
-                    options: {precision: 1},
-                    op: ['equal', 'notequal', 'beginwith', 'endwith', 'less', 'lessorequal', 'greater', 'greaterorequal']
-                }]*/);
-
-
-            function id() {
-                return $('#dg').datagrid('getSelected').id;
-            }
-
-            function ids() {
-                let ids = [];
-                let rows = $('#dg').datagrid('getSelections');
-                for (let i = 0; i < rows.length; i++) {
-                    ids.push(rows[i].id);
+            dataGrid.datagrid('enableFilter', [{
+                field: 'status',
+                type: 'combobox',
+                options: {
+                    panelHeight: 'auto',
+                    data: [
+                        {value: '', text: 'همه'},
+                        {value: 'publish', text: 'منتشر شده'},
+                        {value: 'draft', text: 'پیش نویس'}],
+                    onChange: function (value) {
+                        let fieldName = this.name;
+                        doFilterOnChange(value, fieldName);
+                    }
                 }
-                return ids;
-            }
+            }]);
         </script>
     @endpush
 

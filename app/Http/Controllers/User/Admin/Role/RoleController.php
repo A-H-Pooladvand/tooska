@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User\Admin\Role;
 
 use App\Permission;
+use App\PermissionTitle;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,11 +25,11 @@ class RoleController extends Controller
 
     public function create()
     {
-        $permissions = Permission::get(['id', 'display_name']);
+        $permissionTitles = PermissionTitle::with('permissions:id,display_name,title_id')->get(['id', 'title']);
 
         $form = ['action' => route('admin.role.store')];
 
-        return view('user.admin.role.form', compact('permissions', 'form'));
+        return view('user.admin.role.form', compact('permissionTitles', 'form'));
     }
 
     public function store(Request $request)
@@ -50,27 +51,27 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
 
-        $role_permissions = $role->permissions()->pluck('id')->toArray();
+        $permissionTitles = PermissionTitle::with('permissions:id,display_name,title_id')->get(['id', 'title']);
 
-        $permissions = Permission::get();
+        $rolePermissions = $role->permissions->pluck('id')->toArray();
 
-        return view('user.admin.role.show', compact('role', 'role_permissions', 'permissions'));
+        return view('user.admin.role.show', compact('role', 'rolePermissions', 'permissionTitles'));
     }
 
     public function edit($id)
     {
         $role = Role::find($id);
 
-        $rolePermissions = $role->permissions()->get()->pluck('id')->toArray();
+        $permissionTitles = PermissionTitle::with('permissions:id,display_name,title_id')->get(['id', 'title']);
 
-        $permissions = Permission::get(['id', 'display_name']);
+        $rolePermissions = $role->permissions->pluck('id')->toArray();
 
         $form = [
             'action' => route('admin.role.update', $role->id),
             'method' => 'PUT'
         ];
 
-        return view('user.admin.role.form', compact('permissions', 'rolePermissions', 'role', 'form'));
+        return view('user.admin.role.form', compact('permissionTitles', 'rolePermissions', 'role', 'form'));
     }
 
     public function update(Request $request, $id)

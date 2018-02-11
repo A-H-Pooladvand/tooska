@@ -83,16 +83,20 @@ __webpack_require__(29);
 
 // JEasyUi Default Setups
 
-
-$('#dg').datagrid({
+var $datagrid = $('#dg');
+$datagrid.datagrid({
     pageList: [10, 20, 50, 100],
     remoteFilter: true,
     striped: true,
-    fitColumns: true,
     pagination: true,
     filterBtnIconCls: 'fa fa-chevron-down',
     filterMenuIconCls: 'fa fa-check',
-    filterDelay: 1000
+    filterDelay: 1000,
+    rownumbers: true,
+    height: 500,
+    iconCls: 'fa fa-diamond',
+    collapsible: true,
+    maximizable: true
 });
 
 /***/ }),

@@ -14685,6 +14685,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 $(function () {
     var $sidebarNavigateCheck = true;
+    $('.sidebar__item > li > a').click(function (e) {
+        e.preventDefault();
+    });
     $('.sidebar__item > li').click(function () {
         if ($sidebarNavigateCheck) {
             $sidebarNavigateCheck = false;
@@ -14707,8 +14710,7 @@ $(function () {
         var $form = $('#admin-layout').find('#form');
         var $formAction = $form.attr('action');
 
-        if ('undefined' !== typeof window.tinyMCE)
-            tinyMCE.triggerSave();
+        if (window.tinyMCE) tinyMCE.triggerSave();
 
         $.post($formAction, $form.serialize()).done(function (response) {
 

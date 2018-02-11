@@ -6,6 +6,11 @@ use Laratrust\Models\LaratrustPermission;
 
 class Permission extends LaratrustPermission
 {
+    public function title()
+    {
+        return $this->belongsTo(PermissionTitle::class, 'title_id');
+    }
+
     public function setNameAttribute($value)
     {
         return $this->attributes['name'] = strtolower($value);

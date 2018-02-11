@@ -29,11 +29,19 @@ class Filter
     {
         $this->filter = json_decode($request['filterRules'], true);
 
-        if (!$request->has('filterRules'))
+        if ( ! $request->has('filterRules'))
             return $query;
 
         foreach ($this->filter as $item) {
-            return $query->where($item['field'], 'LIKE', "%{$item['value']}%");
+            switch ($item['op']) {
+                case 'equal':
+                    $query->where($item['field'], $item['value']);
+                    break;
+                case 'contains':
+                    $query->where($item['field'], 'LIKE', "%{$item['value']}%");
+                    break;
+            }
         }
+        return $query;
     }
 }

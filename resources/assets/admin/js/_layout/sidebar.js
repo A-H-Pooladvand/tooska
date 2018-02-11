@@ -1,5 +1,8 @@
 $(function () {
     let $sidebarNavigateCheck = true;
+    $('.sidebar__item > li > a').click(function (e) {
+        e.preventDefault();
+    });
     $('.sidebar__item > li').click(function () {
         if ($sidebarNavigateCheck) {
             $sidebarNavigateCheck = false;

@@ -70,11 +70,22 @@ class User extends Authenticatable
     public function getDeletedAtAttribute()
     {
         switch ($this->attributes['deleted_at']) {
-            case !null:
+            case ! null:
                 return jdate($this->attributes['deleted_at'])->format('Y/m/d');
                 break;
             default:
                 return null;
+        }
+    }
+
+    public function getDeletedAtStatusAttribute()
+    {
+        switch ($this->attributes['deleted_at']) {
+            case null:
+                return 'فعال';
+                break;
+            default:
+                return 'غیر فعال';
         }
     }
 }

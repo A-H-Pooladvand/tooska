@@ -1,5 +1,7 @@
 <nav class="nav-bar">
-    <a href="#" class="pull-left text-center brand-name">i<span>TOOSKA.</span>i<span>R</span></a>
+    <a href="http://itooska.ir" class="pull-left text-center brand-name" target="_blank">
+        <img src="{{ asset('files/_root/tooska.png') }}" width="180" height="50" alt="ITOOSKA.IR" title="itooska.ir">
+    </a>
 
     <div class="dropdown pull-right profile">
         <img width="45" height="45" src="{{ asset('files/_test/9.jpg') }}" class="dropdown-toggle"

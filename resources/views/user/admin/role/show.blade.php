@@ -3,25 +3,76 @@
 
 @section('content')
 
-    <h1>{{ $role['name'] }}</h1>
-    <h2>{{ $role['display_name'] }}</h2>
-    <p>{{ $role['description'] }}</p>
+    <table class="table table-striped table-show">
+        <thead>
+        <tr>
+            <th>عنوان</th>
+            <th>مشخصات</th>
+        </tr>
+        </thead>
+        <tbody>
 
-    <h3>
-        <strong>دسترسی ها</strong>
-    </h3>
-    <hr>
-    <ul class="list-group">
-        @foreach($permissions as $i => $permission)
-            <li>
-                <div class="checkbox">
-                    <label>
-                        <input @if(in_array($permission['id'], $role_permissions)) checked @endif type="checkbox" value="{{ $permission['id'] }}" name="permission[]">
-                        <span>{{ $permission['display_name'] }}</span>
-                    </label>
+        <tr>
+            <th>نامک</th>
+            <td>{{ $role['name'] }}</td>
+        </tr>
+
+        <tr>
+            <th>نام نمایشی</th>
+            <td>{{ $role['display_name'] }}</td>
+        </tr>
+
+        <tr>
+            <th>توضیحات</th>
+            <td>{{ $role['description'] }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div class="jumbotron">
+
+        <h3 class="text-primary m-b-3">
+            <strong>دسترسی ها</strong>
+        </h3>
+
+        <div class="row">
+            @foreach($permissionTitles as $title)
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <h5 class="m-b-2 m-t-2">
+                            <i class="fa fa-hashtag fa-fw text-warning"></i>
+                            <strong>{{ $title['title'] }}</strong>
+                        </h5>
+                        @foreach($title['permissions'] as $permission)
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="permissions[]" value="{{ $permission['id'] }}" @if(!empty($rolePermissions) && in_array($permission['id'], $rolePermissions)) checked @endif>
+                                    {{ $permission['display_name'] }}
+                                </label>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-            </li>
-        @endforeach
-    </ul>
+            @endforeach
+        </div>
+
+    </div>
+
+@stop
+
+@section('helper_block')
+
+    <div class="form-group helper-block">
+
+        <div class="pull-left">
+            {{ Breadcrumbs::render('role-show', $role) }}
+        </div>
+
+        <div class="text-right">
+            <a href="{{ route('admin.role.edit', $role->id) }}" class="btn btn-info">ویرایش</a>
+        </div>
+
+    </div>
 
 @stop

@@ -10,6 +10,7 @@
     @push('scripts')
         <script>
             let dataGrid = $('#dg').datagrid({
+                title: '&nbsp;لیست نقش ها',
                 url: '{{ route('admin.role.items') }}',
                 columns: [[
                     {field: 'checkbox', checkbox: true},
@@ -76,15 +77,15 @@
 
 @stop
 
-@section('helper_block')
-    <div class="form-group helper-block">
-        <div class="pull-left">
-            <p>Breadcrumb</p>
-        </div>
+{{--@section('helper_block')--}}
+    {{--<div class="form-group helper-block">--}}
+        {{--<div class="pull-left">--}}
+            {{--<p>Breadcrumb</p>--}}
+        {{--</div>--}}
 
-        <div class="text-right">
-            <button type="button" class="btn btn-info btn-ajax">ویرایش</button>
-            <a href="{{ route('admin.role.index') }}" class="btn btn-danger">انصراف</a>
-        </div>
-    </div>
-@stop
+        {{--<div class="text-right">--}}
+            {{--<button type="button" class="btn btn-info btn-ajax">ویرایش</button>--}}
+            {{--<a href="{{ route('admin.role.index') }}" class="btn btn-danger">انصراف</a>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--@stop--}}

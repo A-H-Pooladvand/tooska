@@ -6,10 +6,10 @@
     @style(easyui/easyui.css)
 
     <table id="dg"></table>
-
     @push('scripts')
         <script>
             let dataGrid = $('#dg').datagrid({
+                title: '&nbsp;لیست کاربران',
                 url: '{{ route('admin.user.items') }}',
                 columns: [[
                     {field: 'checkbox', checkbox: true},
@@ -36,41 +36,49 @@
                 ]],
 
                 // singleSelect: true,
-                toolbar: [{
-                    text: 'نمایش',
-                    iconCls: 'fa fa-eye',
-                    handler: function () {
-                        window.open('{{ route('admin.user.index') }}' + '/' + id(), '_blank');
-                    }
-                }, '-', {
-                    text: 'ویرایش',
-                    iconCls: 'fa fa-pencil',
-                    handler: function () {
-                        window.open('{{ route('admin.user.index') }}' + '/' + 'edit' + '/' + id(), '_blank');
-                    }
-                }, '-', {
-                    text: 'معلق/غیر معلق',
-                    iconCls: 'fa fa-ban',
-                    handler: function () {
-                        $.post('{{ route('admin.user.index') }}' + '/' + 'soft' + '/' + ids(), {_method: 'delete'}).done(function () {
-                            $('#dg').datagrid('reload');
-                        });
-                    }
-                }, '-', {
-                    text: 'حذف',
-                    iconCls: 'fa fa-trash-o',
-                    handler: function () {
-                        if (confirm('آیا از حذف این رکورد(ها) مطمئن هستید؟')) {
-                            $.post('{{ route('admin.user.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
-
-                                if (response['error'])
-                                    alert(response['error']);
-
+                toolbar: [
+                    {
+                        text: 'نمایش',
+                        iconCls: 'fa fa-eye',
+                        handler: function () {
+                            window.open('{{ route('admin.user.index') }}' + '/' + id(), '_blank');
+                        }
+                    },
+                    {
+                        text: 'دسترسی ها',
+                        iconCls: 'fa fa-lock',
+                        handler: function () {
+                            window.open('{{ route('admin.user.index') }}' + '/permissions/edit/' + id(), '_blank');
+                        }
+                    }, '-', {
+                        text: 'ویرایش',
+                        iconCls: 'fa fa-pencil',
+                        handler: function () {
+                            window.open('{{ route('admin.user.index') }}' + '/' + 'edit' + '/' + id(), '_blank');
+                        }
+                    }, '-', {
+                        text: 'معلق/غیر معلق',
+                        iconCls: 'fa fa-ban',
+                        handler: function () {
+                            $.post('{{ route('admin.user.index') }}' + '/' + 'soft' + '/' + ids(), {_method: 'delete'}).done(function () {
                                 $('#dg').datagrid('reload');
                             });
                         }
+                    }, '-', {
+                        text: 'حذف',
+                        iconCls: 'fa fa-trash-o',
+                        handler: function () {
+                            if (confirm('آیا از حذف این رکورد(ها) مطمئن هستید؟')) {
+                                $.post('{{ route('admin.user.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
+
+                                    if (response['error'])
+                                        alert(response['error']);
+
+                                    $('#dg').datagrid('reload');
+                                });
+                            }
+                        }
                     }
-                }
                 ]
             });
 

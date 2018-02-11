@@ -13,14 +13,18 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view('user.admin.index');
+        return view('blog.admin.index');
     }
 
     public function items(Request $request)
     {
-        $users = User::withTrashed()->select('id', 'name', 'family', 'username', 'mobile', 'created_at', 'deleted_at');
+        $blogs = Blog::select(['id', 'status', 'title', 'summary', 'created_at', 'updated_at']);
 
-        return $this->getGrid($request)->items($users);
+        $blogs = $this->getGrid($request)->items($blogs);
+        $blogs['rows'] = $blogs['rows']->each(function ($item) {
+            $item->status_farsi = $item->status_fa;
+        });
+        return $blogs;
     }
 
     public function create()
@@ -49,38 +53,38 @@ class BlogController extends Controller
 
     public function show($id)
     {
-        return User::withTrashed()->findOrFail($id);
-        return view('user.admin.show');
+        $blog = Blog::with('tags', 'category', 'user')->findOrFail($id);
+//        return $blog;
+        return view('blog.admin.show', compact('blog'));
     }
 
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-
-        $userPermissions = $user->permissions()->get()->pluck('id')->toArray();
-
-        $permissions = Permission::get(['id', 'display_name']);
+        $blog = Blog::with([
+            'tags',
+            'category' => function ($query) {
+                $query->where('category_type', Blog::class)->select('id');
+            }])->findOrFail($id);
 
         $form = [
-            'action' => route('admin.user.update', $user['id']),
-            'method' => 'PUT'
-        ];
+            'action' => route('admin.blog.update', $blog['id']),
+            'method' => 'put'
+            ];
 
-        $roles = Role::get(['id', 'display_name']);
+        $categories = Category::where('category_type', Blog::class)->get(['id', 'title']);
 
-        $userRoles = $user->roles()->get()->pluck('id')->toArray();
-
-        return view('user.admin.form', compact('userRoles', 'user', 'roles', 'form', 'permissions', 'userPermissions'));
+        return view('blog.admin.form', compact('blog', 'form', 'categories'));
     }
 
     public function update(Request $request, $id)
     {
+
         $request->merge(['publish_at' => jDateTime::createDatetimeFromFormat('Y/m/d H:i:s', $request['publish_at'])]);
 
         $this->validate($request, $this->validator());
 
-        $blog = Blog::find($id);
-        $blog->update($this->fields($request));
+        $blog = Blog::findOrFail($id);
+        $blog->update($this->fields($request, $blog));
 
         $tags = $request['tags'];
 
@@ -103,7 +107,7 @@ class BlogController extends Controller
 
     private function validator()
     {
-        return [
+        $rules = [
             'title' => 'required|max:100',
             'image' => 'required',
             'summary' => 'required|max:250',
@@ -111,14 +115,20 @@ class BlogController extends Controller
             'publish_at' => 'required',
             'category' => 'required',
         ];
+
+
+        if (\request()->method() === 'PUT')
+            $rules['image'] = 'nullable';
+
+        return $rules;
     }
 
-    private function fields(Request $request)
+    private function fields(Request $request, $blog = null)
     {
         return [
             'user_id' => Auth::id(),
             'title' => $request['title'],
-            'image' => $request['image'],
+            'image' => empty($request['image']) ? $blog['image'] : $request['image'],
             'summary' => $request['summary'],
             'content' => $request['content'],
             'publish_at' => $request['publish_at'],

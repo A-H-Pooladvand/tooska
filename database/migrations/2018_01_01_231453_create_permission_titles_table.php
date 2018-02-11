@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaggablesTable extends Migration
+class CreatePermissionTitlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTaggablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('taggables', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedMediumInteger('tag_id')->index();
-            $table->unsignedMediumInteger('taggable_id')->index();
-            $table->string('taggable_type', 70);
+        Schema::create('permission_titles', function (Blueprint $table) {
+            $table->tinyIncrements('id');
+            $table->string('title', 20);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateTaggablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taggables');
+        Schema::dropIfExists('permission_titles');
     }
 }

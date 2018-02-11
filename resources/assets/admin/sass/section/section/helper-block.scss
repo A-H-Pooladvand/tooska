@@ -1,4 +1,17 @@
 .helper-block {
   padding: 1rem;
   background: $base-color;
+  border-radius: $border-radius-base;
+
+  ol.breadcrumb {
+    background: $brand-primary;
+
+    li {
+      color: font-color($brand-primary);
+
+      a {
+        color: $brand-info;
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 .sidebar {
-  width: 250px;
+  width: 220px;
   position: fixed;
   top: 60px;
   height: 100%;
@@ -15,7 +15,7 @@
       max-height: 41px;
       position: relative;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      @include transition(max-height 500ms ease);
+      @include transition(max-height 500ms linear);
       overflow: hidden;
 
       &:last-child {

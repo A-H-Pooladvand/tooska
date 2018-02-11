@@ -28,23 +28,37 @@
 
             </div>
 
-            <div class="col-sm-5">
+        </div>
 
-                <div class="form-group">
-                    <label for="input_roles" class="control-label">دسترسی ها</label>
-                    @foreach($permissions as $permission)
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="permissions[]" value="{{ $permission['id'] }}" @if(!empty($rolePermissions) && in_array($permission->id, $rolePermissions)) checked @endif>
-                                &nbsp{{ $permission['display_name'] }}
-                            </label>
+        <div class="jumbotron">
+
+            <h3 class="text-primary m-b-3">
+                <strong>دسترسی ها</strong>
+            </h3>
+
+            <div class="row">
+                @foreach($permissionTitles as $title)
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <h5 class="m-b-2 m-t-2">
+                                <i class="fa fa-hashtag fa-fw text-warning"></i>
+                                <strong>{{ $title['title'] }}</strong>
+                            </h5>
+                            @foreach($title['permissions'] as $permission)
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="permissions[]" value="{{ $permission['id'] }}" @if(!empty($rolePermissions) && in_array($permission['id'], $rolePermissions)) checked @endif>
+                                        {{ $permission['display_name'] }}
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
-                    @endforeach
-                </div>
-
+                    </div>
+                @endforeach
             </div>
 
         </div>
+
 
     </form>
 
@@ -55,12 +69,15 @@
     <div class="form-group helper-block">
 
         <div class="pull-left">
-            <p>Breadcrumb</p>
+            @if(!empty($role))
+                {{ Breadcrumbs::render('role-edit', $role) }}
+            @else
+                {{ Breadcrumbs::render('role-create') }}
+            @endif
         </div>
 
         <div class="text-right">
             <button type="button" class="btn btn-info btn-ajax">ذخیره</button>
-            <a href="{{ route('admin.role.index') }}" class="btn btn-danger">انصراف</a>
         </div>
 
     </div>

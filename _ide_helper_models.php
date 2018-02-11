@@ -23,8 +23,9 @@ namespace App{
  * @property string $publish_at تاریخ انتشار
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Category[] $categories
+ * @property-read \App\Category $category
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $comments
+ * @property-read mixed $status_fa
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Tag[] $tags
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Blog whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Blog whereContent($value)
@@ -46,15 +47,12 @@ namespace App{
  * App\Category
  *
  * @property int $id
- * @property int $category_able_id
- * @property string $category_able_type
+ * @property string $category_type
  * @property string $title
  * @property string $slug
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $category_able
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCategoryAbleId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCategoryAbleType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCategoryType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereSlug($value)
@@ -91,23 +89,51 @@ namespace App{
 
 namespace App{
 /**
+ * App\MenuBuilder
+ *
+ */
+	class MenuBuilder extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Permission
  *
  * @property int $id
+ * @property int $title_id
  * @property string $name
  * @property string|null $display_name
  * @property string|null $description
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
+ * @property-read \App\PermissionTitle $title
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Permission whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Permission whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Permission whereDisplayName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Permission whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Permission whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Permission whereTitleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Permission whereUpdatedAt($value)
  */
 	class Permission extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\PermissionTitle
+ *
+ * @property int $id
+ * @property string $title
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $permissions
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PermissionTitle whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PermissionTitle whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PermissionTitle whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PermissionTitle whereUpdatedAt($value)
+ */
+	class PermissionTitle extends \Eloquent {}
 }
 
 namespace App{
@@ -133,6 +159,14 @@ namespace App{
 
 namespace App{
 /**
+ * App\RoleTitle
+ *
+ */
+	class RoleTitle extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Tag
  *
  * @property int $id
@@ -154,6 +188,7 @@ namespace App{
  * App\Team
  *
  * @property int $id
+ * @property int $title_id
  * @property string $name
  * @property string|null $display_name
  * @property string|null $description
@@ -165,6 +200,7 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereDisplayName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereTitleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Team whereUpdatedAt($value)
  */
 	class Team extends \Eloquent {}
@@ -191,7 +227,6 @@ namespace App{
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $permissions
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Team[] $rolesTeams
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
  * @method static bool|null restore()

@@ -4,7 +4,7 @@ $(function () {
         let $form = $('#admin-layout').find('#form');
         let $formAction = $form.attr('action');
 
-        if ('undefined' !== typeof window.tinyMCE) {
+        if (window.tinyMCE)
             tinyMCE.triggerSave();
 
         $.post($formAction, $form.serialize()).done(function (response) {

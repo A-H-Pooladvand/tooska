@@ -12,4 +12,9 @@ Route::group(['prefix' => 'users', 'as' => 'user.', 'namespace' => 'User\Admin']
     Route::delete('soft/{id}', 'UserController@softDestroy')->name('soft.destroy')->middleware('permission:delete-user');
     Route::delete('{id}', 'UserController@destroy')->name('destroy')->middleware('permission:delete-user');
 
+    Route::group(['prefix' => 'permissions', 'as' => 'permission.', 'namespace' => 'Permission'], function () {
+        Route::get('edit/{id}', 'PermissionController@edit')->name('edit')->middleware('permission:edit-acl');
+        Route::put('{id}', 'PermissionController@update')->name('update')->middleware('permission:edit-acl');
+    });
+
 });

@@ -146,26 +146,8 @@
 
         <hr>
 
-        <h4>
-            <strong>دسترسی های فردی کاربر</strong>
-        </h4>
-
-        <hr>
-
-        <div class="row">
-            @foreach($permissions as $permission)
-                <div class="col-md-2 col-sm-3 col-xs-4">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="permissions[]" value="{{ $permission['id'] }}" @if(!empty($userPermissions) && in_array($permission->id, $userPermissions)) checked @endif>
-                            <small>{{ $permission['display_name'] }}</small>
-                        </label>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
     </form>
+
 
 @stop
 
@@ -174,12 +156,15 @@
     <div class="form-group helper-block">
 
         <div class="pull-left">
-            <p>Breadcrumb</p>
+            @if(!empty($user))
+                {{ Breadcrumbs::render('user-edit', $user) }}
+                @else
+                {{ Breadcrumbs::render('user-create') }}
+            @endif
         </div>
 
         <div class="text-right">
             <button type="button" class="btn btn-info btn-ajax">ذخیره</button>
-            <a href="{{ route('admin.user.index') }}" class="btn btn-danger">انصراف</a>
         </div>
 
     </div>

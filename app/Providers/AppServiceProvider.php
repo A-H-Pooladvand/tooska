@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Blade;
 use Illuminate\Support\ServiceProvider;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('_layouts.admin.includes.sidebar', 'App\Http\ViewComposers\Menu\Admin\Render');
+
         Blade::directive('script', function ($expression) {
             return "<?php \$__env->startPush('page-scripts'); ?>
                     <script src=\"<?php echo e(asset(\"assets/{$expression}\")); ?>\"></script>

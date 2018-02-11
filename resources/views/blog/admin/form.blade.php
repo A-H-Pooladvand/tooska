@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <img id="image-preview" width="100%" src="@if(!empty($blog['image'])) {{ $blog['image'] }} @endif">
                 </div>
-                
+
                 <div class="clearnfix"></div>
 
                 <div class="form-group">
@@ -66,7 +66,12 @@
                              data-disablebeforetoday="true">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
-                        <input type="text" name="publish_at" class="form-control datepicker" id="input_publish_at" readonly placeholder="لطفا تاریخ انتشار را تعیین نمایید"/>
+                        <input type="text"
+                               name="publish_at"
+                               class="form-control datepicker"
+                               id="input_publish_at" readonly
+                               placeholder="لطفا تاریخ انتشار را تعیین نمایید"
+                               @if(!empty($blog['publish_at'])) value="{{ jdate($blog['publish_at'])->format('Y/m/d H:i:s') }}" @endif>
                     </div>
                 </div>
 
@@ -75,7 +80,13 @@
                     @script(selectize/selectize.js)
                     <div class="selectize--tags">
                         <label for="input_tags" class="control-label">کلمات کلیدی</label>
-                        <select id="input_tags" name="tags[]" class="demo-default" multiple placeholder="جستجو و یا با فشار دادن Enter یکی جدید ایجاد نمایید"></select>
+                        <select id="input_tags" name="tags[]" class="demo-default" multiple placeholder="جستجو و یا با فشار دادن Enter یکی جدید ایجاد نمایید">
+                            @if(!empty($blog['tags']))
+                                @foreach($blog['tags'] as $item)
+                                    <option selected value="{{ $item['id'] }}">{{ $item['title'] }}</option>
+                                @endforeach
+                            @endif
+                        </select>
                     </div>
                     <script>
                         let $selectize_url = '{{ route('admin.tag.search.index') }}';
@@ -88,25 +99,13 @@
                     <select data-live-search="true" name="category" id="input_category" class="bootstrap-select">
                         <option selected disabled>دسته بندی را انتخاب نمایید</option>
                         @foreach($categories as $category)
-                            <option value="{{ $category['id'] }}" @if(!empty($userRoles) && in_array($category['id'], $userRoles)) selected @endif>
+                            <option value="{{ $category['id'] }}" @if(!empty($blog['category']) && $blog['category']['id'] === $category['id']) selected @endif>
                                 {{ $category['title'] }}
                             </option>
                         @endforeach
                     </select>
 
                 </div>
-
-                {{--<div class="form-group">
-                    <label for="selectize--input_category" class="control-label">دسته بندی</label>
-                    <select id="selectize--input_category" name="category">
-                        <option value="">دسته بندی را انتخاب و یا یکی جدید ایجاد نمایید</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category['id'] }}" @if(!empty($userRoles) && in_array($category['id'], $userRoles)) selected @endif>
-                                {{ $category['title'] }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>--}}
 
             </div>
 
@@ -128,12 +127,15 @@
     <div class="form-group helper-block">
 
         <div class="pull-left">
-            <p>Breadcrumb</p>
+            @if(!empty($blog))
+                {{ Breadcrumbs::render('blog-edit', $blog) }}
+            @else
+                {{ Breadcrumbs::render('blog-create') }}
+            @endif
         </div>
 
         <div class="text-right">
             <button type="button" class="btn btn-info btn-ajax">ذخیره</button>
-            <a href="{{ route('admin.blog.index') }}" class="btn btn-danger">انصراف</a>
         </div>
 
     </div>
