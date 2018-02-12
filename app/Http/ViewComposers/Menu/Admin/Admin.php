@@ -70,6 +70,22 @@ return [
         ]
     ],
     [
+        // Category
+        'title' => 'دسته بندی',
+        'icon' => 'fa fa-fw fa-folder-open',
+        'link' => '#',
+        'sub' => [
+            [
+                'title' => 'افزودن دسته بندی',
+                'link' => route('admin.category.create'),
+            ],
+            [
+                'title' => 'لیست دسته بندی ها',
+                'link' => route('admin.category.index')
+            ]
+        ]
+    ],
+    [
         // Tags
         'title' => 'کلمات کلیدی',
         'icon' => 'fa fa-fw fa-tags',

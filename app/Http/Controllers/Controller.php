@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\_Controller\CategoryHandler;
 use App\Http\Controllers\_Controller\Grid\Grid;
 use App\Http\Controllers\_Controller\TagHandler;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -34,6 +35,15 @@ class Controller extends BaseController
     protected function tags(array $newTags)
     {
         return new TagHandler($this, $newTags);
+    }
+
+    /**
+     * Check if category_type provided from the form is a correct namespace
+     * @return CategoryHandler
+     */
+    protected function categories()
+    {
+        return new CategoryHandler($this);
     }
 
 }

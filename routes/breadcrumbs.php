@@ -94,3 +94,30 @@ Breadcrumbs::register('blog-edit', function ($breadcrumbs, $blog) {
     $breadcrumbs->parent('blog-show', $blog);
     $breadcrumbs->push('ویرایش خبر بلاگ', route('admin.blog.edit', $blog->id));
 });
+
+/**
+ * Category
+ */
+
+// Categories
+Breadcrumbs::register('categories', function ($breadcrumbs) {
+    $breadcrumbs->push('لیست دسته بندی ها', route('admin.category.index'));
+});
+
+// Category > Create
+Breadcrumbs::register('category-create', function ($breadcrumbs) {
+    $breadcrumbs->parent('categories');
+    $breadcrumbs->push('افزودن دسته بندی', route('admin.category.create'));
+});
+
+// Category > Show
+Breadcrumbs::register('category-show', function ($breadcrumbs, $category) {
+    $breadcrumbs->parent('categories');
+    $breadcrumbs->push('مشاهده دسته بندی', route('admin.category.show', $category->id));
+});
+
+// Categories > Show > Edit
+Breadcrumbs::register('category-edit', function ($breadcrumbs, $category) {
+    $breadcrumbs->parent('category-show', $category);
+    $breadcrumbs->push('ویرایش دسته بندی', route('admin.category.edit', $category->id));
+});

@@ -49,16 +49,18 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        $message =
-            '#Host: ' . config('app.name') . "\n\n" .
-            '#file: ' . $exception->getFile() . "\n\n" .
-            '#Line: ' . $exception->getLine() . "\n\n" .
-            '#Message: ' . $exception->getMessage() . "\n\n";
+        if ( ! env('APP_DEBUG')) {
+            $message =
+                '#Host: ' . config('app.name') . "\n\n" .
+                '#file: ' . $exception->getFile() . "\n\n" .
+                '#Line: ' . $exception->getLine() . "\n\n" .
+                '#Message: ' . $exception->getMessage() . "\n\n";
 
-        Telegram::sendMessage([
-            'chat_id' => '@tooska_error_reporter',
-            'text' => $message
-        ]);
+            Telegram::sendMessage([
+                'chat_id' => '@tooska_error_reporter',
+                'text' => $message
+            ]);
+        }
 
         return parent::render($request, $exception);
     }
