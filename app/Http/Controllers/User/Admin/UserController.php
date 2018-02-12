@@ -5,7 +5,7 @@
 
 namespace App\Http\Controllers\User\Admin;
 
-use App\Permission;
+
 use App\PermissionTitle;
 use App\Role;
 use App\User;

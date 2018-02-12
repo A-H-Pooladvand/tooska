@@ -15,13 +15,10 @@ class LaratrustSetupTables extends Migration
         // Create table for storing roles
         Schema::create('roles', function (Blueprint $table) {
             $table->mediumIncrements('id');
-            $table->unsignedTinyInteger('title_id')->index();
             $table->string('name', 191)->unique();
             $table->string('display_name', 191)->nullable();
             $table->string('description', 191)->nullable();
             $table->timestamps();
-
-            $table->foreign('title_id')->references('id')->on('permission_titles')->onDelete('cascade')->onUpdate('cascade');
         });
 
         // Create table for storing permissions
