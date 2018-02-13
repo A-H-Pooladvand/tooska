@@ -11,7 +11,7 @@ class AboutController extends Controller
     public function show()
     {
         $about = About::findOrFail(1);
-        return view('user.admin.show', compact('about'));
+        return view('about.admin.show', compact('about'));
     }
 
     public function edit()

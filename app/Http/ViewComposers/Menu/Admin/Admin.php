@@ -118,15 +118,18 @@ return [
         ]
     ],
     [
-        // Blog
+        // Contact-us
         'title' => 'تماس با ما',
-        'icon' => 'fa fa-fw fa-mobile-phone',
+        'icon' => 'fa fa-fw fa-phone',
         'link' => '#',
         'sub' => [
             [
+                'title' => 'مشاهده تماس با ما',
+                'link' => route('admin.contact.show',1)
+            ],
+            [
                 'title' => 'ویرایش تماس با ما',
-//                'link' => route('admin.contact.edit')
-                'link' => '#'
+                'link' => route('admin.contact.edit',1)
             ]
         ]
     ]
