@@ -108,9 +108,12 @@ return [
         'link' => '#',
         'sub' => [
             [
+                'title' => 'مشاهده درباره ما',
+                'link' => route('admin.about.show', 1)
+            ],
+            [
                 'title' => 'ویرایش درباره ما',
-//                'link' => route('admin.about.edit')
-                'link' => '#'
+                'link' => route('admin.about.edit', 1)
             ]
         ]
     ],

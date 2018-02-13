@@ -36,7 +36,7 @@ class LaratrustTableSeeder extends Seeder
                 ],
                 'role' => [
                     'name' => 'superAdmin',
-                    'display_name' => 'امین کل',
+                    'display_name' => 'ادمین کل',
                     'description' => 'دسترسی به تمامی امکانات سایت',
                 ]
             ],
@@ -164,32 +164,32 @@ class LaratrustTableSeeder extends Seeder
                 ]
             ],
             [
-                'title' => 'تگ',
+                'title' => 'کلمات کلیدی',
                 'detail' => [
                     [
                         'name' => 'create-tag',
-                        'display_name' => 'ایجاد تگ',
-                        'description' => 'توانایی ایجاد تگ',
+                        'display_name' => 'ایجاد کلمات کلیدی',
+                        'description' => 'توانایی ایجاد کلمات کلیدی',
                     ],
                     [
                         'name' => 'read-tag',
-                        'display_name' => 'مشاهده تگ',
-                        'description' => 'توانایی مشاهده تگ',
+                        'display_name' => 'مشاهده کلمات کلیدی',
+                        'description' => 'توانایی مشاهده کلمات کلیدی',
                     ],
                     [
                         'name' => 'edit-tag',
-                        'display_name' => 'ویرایش تگ',
-                        'description' => 'توانایی ویرایش تگ',
+                        'display_name' => 'ویرایش کلمات کلیدی',
+                        'description' => 'توانایی ویرایش کلمات کلیدی',
                     ],
                     [
                         'name' => 'delete-tag',
-                        'display_name' => 'حذف تگ',
-                        'description' => 'توانایی حذف تگ',
+                        'display_name' => 'حذف کلمات کلیدی',
+                        'description' => 'توانایی حذف کلمات کلیدی',
                     ],
                 ]
             ],
             [
-                'title' => 'کامنت',
+                'title' => 'نظرات',
                 'detail' => [
                     [
                         'name' => 'create-comment',
@@ -235,6 +235,36 @@ class LaratrustTableSeeder extends Seeder
                         'name' => 'delete-category',
                         'display_name' => 'حذف دسته بندی',
                         'description' => 'توانایی حذف دسته بندی',
+                    ]
+                ]
+            ],
+            [
+                'title' => 'درباره ما',
+                'detail' => [
+                    [
+                        'name' => 'read-about',
+                        'display_name' => 'مشاهده درباره ما',
+                        'description' => 'توانایی مشاهده درباره ما',
+                    ],
+                    [
+                        'name' => 'edit-about',
+                        'display_name' => 'ویرایش درباره ما',
+                        'description' => 'توانایی ویرایش درباره ما',
+                    ]
+                ]
+            ],
+            [
+                'title' => 'تماس با ما',
+                'detail' => [
+                    [
+                        'name' => 'read-contact',
+                        'display_name' => 'مشاهده تماس با ما',
+                        'description' => 'توانایی مشاهده تماس با ما',
+                    ],
+                    [
+                        'name' => 'edit-contact',
+                        'display_name' => 'ویرایش تماس با ما',
+                        'description' => 'توانایی ویرایش تماس با ما',
                     ]
                 ]
             ],

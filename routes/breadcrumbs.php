@@ -121,3 +121,30 @@ Breadcrumbs::register('category-edit', function ($breadcrumbs, $category) {
     $breadcrumbs->parent('category-show', $category);
     $breadcrumbs->push('ویرایش دسته بندی', route('admin.category.edit', $category->id));
 });
+
+/**
+ * Tag
+ */
+
+// Tags
+Breadcrumbs::register('tags', function ($breadcrumbs) {
+    $breadcrumbs->push('لیست کلمات کلیدی', route('admin.tag.index'));
+});
+
+// Tag > Create
+Breadcrumbs::register('tag-create', function ($breadcrumbs) {
+    $breadcrumbs->parent('tags');
+    $breadcrumbs->push('افزودن کلمه کلیدی', route('admin.tag.create'));
+});
+
+// Tag > Show
+Breadcrumbs::register('tag-show', function ($breadcrumbs, $tag) {
+    $breadcrumbs->parent('tags');
+    $breadcrumbs->push('مشاهده کلمه کلیدی', route('admin.tag.show', $tag->id));
+});
+
+// Tags > Show > Edit
+Breadcrumbs::register('tag-edit', function ($breadcrumbs, $tag) {
+    $breadcrumbs->parent('tag-show', $tag);
+    $breadcrumbs->push('ویرایش کلمه کلیدی', route('admin.tag.edit', $tag->id));
+});

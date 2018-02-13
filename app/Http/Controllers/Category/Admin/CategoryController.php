@@ -66,6 +66,13 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $category = Category::findOrFail($id);
+        $this->validator($request, $category);
+
+        if ( ! $this->categories()->check($request['type']))
+            return 'لطفا با پشتیبانی تماس بگیرید.';
+
+        $category->update($this->fields($request));
 
         return ['message' => 'مطلب جدید با موفقیت ثبت شد.'];
     }
@@ -98,7 +105,7 @@ class CategoryController extends Controller
         ];
 
         if ($request->method() === 'PUT')
-            $rules['slug'] = 'required|regex:/(^[A-Za-z-_ ]+$)+/|unique:categories,name,' . $category->id;
+            $rules['slug'] = 'required|regex:/(^[A-Za-z-_ ]+$)+/|unique:categories,slug,' . $category->id;
 
         $this->validate($request, $rules);
     }

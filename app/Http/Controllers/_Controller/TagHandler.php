@@ -75,10 +75,7 @@ class TagHandler
     {
         $new_tag_ids = [];
         foreach ($this->newTags as $item) {
-            $new_tag_ids[] = Tag::create([
-                'title' => $item,
-                'slug' => $item
-            ]);
+            $new_tag_ids[] = Tag::create(['title' => $item,]);
         }
 
         return array_column($new_tag_ids, 'id');

@@ -51,10 +51,11 @@ class Handler extends ExceptionHandler
     {
         if ( ! env('APP_DEBUG')) {
             $message =
-                '#Host: ' . config('app.name') . "\n\n" .
+                '```#Host: ' . config('app.name') . "\n\n" .
+                '#url: ' . url()->current() . "\n\n" .
                 '#file: ' . $exception->getFile() . "\n\n" .
                 '#Line: ' . $exception->getLine() . "\n\n" .
-                '#Message: ' . $exception->getMessage() . "\n\n";
+                '#Message: ' . $exception->getMessage() . "\n\n```";
 
             Telegram::sendMessage([
                 'chat_id' => '@tooska_error_reporter',

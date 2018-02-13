@@ -25,8 +25,10 @@ namespace App{
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \App\Category $category
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $comments
+ * @property-read mixed $publish_at_fa
  * @property-read mixed $status_fa
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Tag[] $tags
+ * @property-read \App\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Blog whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Blog whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Blog whereCreatedAt($value)
@@ -52,6 +54,7 @@ namespace App{
  * @property string $slug
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read mixed $category_type_fa
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCategoryType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereId($value)
@@ -224,6 +227,7 @@ namespace App{
  * @property string|null $remember_token
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read mixed $deleted_at_status
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $permissions
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles

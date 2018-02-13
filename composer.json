@@ -24,6 +24,9 @@
         "phpunit/phpunit": "~6.0"
     },
     "autoload": {
+        "files": [
+            "app/helpers/Functions/Helpers.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"
