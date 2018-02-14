@@ -36,3 +36,12 @@ mix.scripts([
     'resources/assets/admin/js/_layout/selectize.js'
 ], 'public/assets/selectize/selectize.js')
     .copy('node_modules/selectize/dist/css/selectize.css','public/assets/selectize/selectize.css');
+
+// ----- Front -----
+
+
+// Admin Panel Layout Scripts
+mix.js([
+    'resources/assets/front/js/app.js',
+], 'public/js/front.js')
+    .sass('resources/assets/front/sass/app.scss', 'public/css/front.css');

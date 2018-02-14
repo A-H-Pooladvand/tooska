@@ -1,7 +1,15 @@
 {
+    "/js/front.js": "/js/front.js",
     "/js/admin.js": "/js/admin.js",
     "/css/admin.css": "/css/admin.css",
     "/assets/easyui/easyui.css": "/assets/easyui/easyui.css",
+    "/css/front.css": "/css/front.css",
     "/assets/tinymce/tinymce.js": "/assets/tinymce/tinymce.js",
-    "/assets/easyui/easyui.js": "/assets/easyui/easyui.js"
+    "/assets/easyui/easyui.js": "/assets/easyui/easyui.js",
+    "/assets/tinymce/langs/fa_IR.js": "/assets/tinymce/langs/fa_IR.js",
+    "/assets/easyui/filter.png": "/assets/easyui/filter.png",
+    "/assets/datepicker/datepicker.js": "/assets/datepicker/datepicker.js",
+    "/assets/datepicker/datepicker.css": "/assets/datepicker/datepicker.css",
+    "/assets/selectize/selectize.js": "/assets/selectize/selectize.js",
+    "/assets/selectize/selectize.css": "/assets/selectize/selectize.css"
 }
