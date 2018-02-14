@@ -1,47 +1,55 @@
-@extends('_layouts.app')
+@extends('_layouts.front.index')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+    <div class="auth__wrapper">
+        <div class="container position-relative">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+                {{ csrf_field() }}
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="auth__from position-relative">
+                            <i class="fa fa-envelope fa-5x text-primary"></i>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <h3 class="text-center text-primary m-t-6 m-b-3">
+                                        <strong>بازیابی رمز عبور</strong>
+                                    </h3>
+                                </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <h5 class="text-center">برای بازیابی رمز عبور خود لطفا ایمیل حساب کاربری خود را وارد نمایید.</h5>
+                                </div>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                                <div class="form-group-lg form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="ایمیل">
+
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
+                                    @endif
+                                </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">ارسال ایمیل بازیابی رمز عبور</button>
+                                </div>
                             </div>
+
+
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+            </form>
         </div>
     </div>
-</div>
+
 @endsection

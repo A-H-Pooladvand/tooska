@@ -14274,6 +14274,32 @@ hr {
   background-size: cover;
 }
 
+.auth__wrapper .fa-user-secret,
+.auth__wrapper .fa-sign-in,
+.auth__wrapper .fa-envelope {
+  position: absolute;
+  right: 50%;
+  bottom: 100%;
+  border-radius: 50%;
+  background: white;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  padding: 1rem;
+  border: 4px solid #00d1b2;
+  -webkit-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+}
+
+.auth__wrapper .fa-envelope {
+  font-size: 6rem;
+}
+
+.auth__wrapper .form-group i,
+.auth__wrapper .form-group h3 {
+  text-shadow: -2px 2px 7px #ccc;
+}
+
 .auth__wrapper .container {
   height: 100%;
 }
@@ -14304,9 +14330,13 @@ hr {
 }
 
 .auth__wrapper .container .col-md-6 .auth__from {
+  border: 4px solid #00d1b2;
   width: 100%;
   background: #fff;
   padding: 1rem;
+  -webkit-box-shadow: 3px 3px 50px -10px #222222;
+  box-shadow: 3px 3px 50px -10px #222222;
+  border-radius: 2px;
 }
 
 .auth__wrapper .container .col-md-6 .auth__from a {

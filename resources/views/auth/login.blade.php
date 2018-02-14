@@ -9,10 +9,11 @@
 
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <div class="auth__from">
+                        <div class="auth__from position-relative">
+                            <i class="fa fa-sign-in fa-5x text-primary"></i>
 
                             <div class="form-group">
-                                <h3 class="text-center">
+                                <h3 class="text-center text-primary m-t-6 m-b-3">
                                     <strong>وارد شوید</strong>
                                 </h3>
                             </div>

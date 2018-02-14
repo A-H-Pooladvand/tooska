@@ -8,12 +8,13 @@
 
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <div class="auth__from">
+                        <div class="auth__from position-relative">
+                            <i class="fa fa-user-secret fa-5x text-primary"></i>
 
                             <div class="form-group">
-                                <h2 class="text-center">
+                                <h3 class="text-center m-t-6 m-b-3">
                                     <strong>ثبت نام</strong>
-                                </h2>
+                                </h3>
                             </div>
 
                             <div class="form-group-lg form-group{{ $errors->has('name') ? ' has-error' : '' }}">
