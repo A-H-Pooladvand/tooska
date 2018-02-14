@@ -1,10 +1,10 @@
-.login__wrapper {
+.auth__wrapper {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: url('../../../../../../../public/files/_root/login.jpg');
+  background-image: url('../../../../../../public/files/_root/login.jpg');
   background-size: cover;
 
   .container {
@@ -26,7 +26,7 @@
       flex-direction: column;
       justify-content: center;
 
-      .login__from {
+      .auth__from {
         width: 100%;
         background: $white;
         padding: 1rem;

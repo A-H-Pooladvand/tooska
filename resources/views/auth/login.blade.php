@@ -1,7 +1,7 @@
 @extends('_layouts.front.index')
 
 @section('content')
-    <div class="login__wrapper">
+    <div class="auth__wrapper">
         <div class="container position-relative">
 
             <form method="POST" action="{{ route('login') }}">
@@ -9,7 +9,7 @@
 
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <div class="login__from">
+                        <div class="auth__from">
 
                             <div class="form-group">
                                 <h3 class="text-center">
@@ -19,7 +19,7 @@
 
                             <div class="form-group-lg form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
-                                <div class="">
+                                <div>
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="ایمیل">
 
                                     @if ($errors->has('email'))
@@ -32,7 +32,7 @@
 
                             <div class="form-group-lg form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
-                                <div class="">
+                                <div>
                                     <input id="password" type="password" class="form-control" name="password" required placeholder="رمزعبور">
 
                                     @if ($errors->has('password'))
