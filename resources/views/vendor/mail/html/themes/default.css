@@ -1,7 +1,7 @@
 /* Base */
 
 body, body *:not(html):not(style):not(br):not(tr):not(code) {
-    font-family: Avenir, Helvetica, sans-serif;
+    /*font-family: sans-serif, Avenir, Helvetica;*/
     box-sizing: border-box;
 }
 
@@ -18,7 +18,7 @@ body {
     -webkit-hyphens: auto;
     -webkit-text-size-adjust: none;
     word-break: break-all;
-    word-break: break-word;
+    font-family: 'Vazir', sans-serif;
 }
 
 p,
@@ -26,7 +26,7 @@ ul,
 ol,
 blockquote {
     line-height: 1.4;
-    text-align: left;
+    text-align: right;
 }
 
 a {
@@ -44,7 +44,7 @@ h1 {
     font-size: 19px;
     font-weight: bold;
     margin-top: 0;
-    text-align: left;
+    text-align: right;
 }
 
 h2 {
@@ -52,7 +52,7 @@ h2 {
     font-size: 16px;
     font-weight: bold;
     margin-top: 0;
-    text-align: left;
+    text-align: right;
 }
 
 h3 {
@@ -60,7 +60,7 @@ h3 {
     font-size: 14px;
     font-weight: bold;
     margin-top: 0;
-    text-align: left;
+    text-align: right;
 }
 
 p {
@@ -68,7 +68,7 @@ p {
     font-size: 16px;
     line-height: 1.5em;
     margin-top: 0;
-    text-align: left;
+    text-align: right;
 }
 
 p.sub {
@@ -220,26 +220,17 @@ img {
 
 .button-blue {
     background-color: #3097D1;
-    border-top: 10px solid #3097D1;
-    border-right: 18px solid #3097D1;
-    border-bottom: 10px solid #3097D1;
-    border-left: 18px solid #3097D1;
+    padding: 1rem;
 }
 
 .button-green {
     background-color: #2ab27b;
-    border-top: 10px solid #2ab27b;
-    border-right: 18px solid #2ab27b;
-    border-bottom: 10px solid #2ab27b;
-    border-left: 18px solid #2ab27b;
+    padding: 1rem;
 }
 
 .button-red {
     background-color: #bf5329;
-    border-top: 10px solid #bf5329;
-    border-right: 18px solid #bf5329;
-    border-bottom: 10px solid #bf5329;
-    border-left: 18px solid #bf5329;
+    padding: 1rem;
 }
 
 /* Panels */

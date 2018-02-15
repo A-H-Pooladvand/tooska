@@ -14276,6 +14276,7 @@ hr {
 
 .auth__wrapper .fa-user-secret,
 .auth__wrapper .fa-sign-in,
+.auth__wrapper .fa-lock,
 .auth__wrapper .fa-envelope {
   position: absolute;
   right: 50%;
