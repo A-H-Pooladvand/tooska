@@ -6,6 +6,8 @@
     "/css/front.css": "/css/front.css",
     "/assets/tinymce/tinymce.js": "/assets/tinymce/tinymce.js",
     "/assets/easyui/easyui.js": "/assets/easyui/easyui.js",
+    "/assets/jquery-confirm/jquery-confirm.js": "/assets/jquery-confirm/jquery-confirm.js",
+    "/assets/jquery-confirm/jquery-confirm.css": "/assets/jquery-confirm/jquery-confirm.css",
     "/assets/tinymce/langs/fa_IR.js": "/assets/tinymce/langs/fa_IR.js",
     "/assets/easyui/filter.png": "/assets/easyui/filter.png",
     "/assets/datepicker/datepicker.js": "/assets/datepicker/datepicker.js",

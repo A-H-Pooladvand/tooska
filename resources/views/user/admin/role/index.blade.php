@@ -4,6 +4,8 @@
 
     @script(easyui/easyui.js)
     @style(easyui/easyui.css)
+    @script(jquery-confirm/jquery-confirm.js)
+    @style(jquery-confirm/jquery-confirm.css)
 
     <table id="dg"></table>
 
@@ -43,15 +45,37 @@
                     text: 'حذف',
                     iconCls: 'fa fa-trash-o',
                     handler: function () {
-                        if (confirm('آیا از حذف این رکورد(ها) مطمئن هستید؟')) {
-                            $.post('{{ route('admin.role.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
+                        $.confirm({
+                            title: 'حذف رکورد؟',
+                            content: 'آیا از حذف این رکورد(ها) مطمئن هستید؟',
+                            buttons: {
+                                close: {
+                                    text: 'خیر',
+                                    btnClass: 'btn-danger',
+                                },
+                                confirm: {
+                                    text: 'بله',
+                                    btnClass: 'btn-primary',
+                                    action: function () {
+                                        $.post('{{ route('admin.role.index') }}' + '/' + ids(), {_method: 'delete'}).done(function (response) {
+                                            if (response['error'])
+                                                $.alert({
+                                                    title: 'خطا!',
+                                                    content: response['error'],
+                                                    buttons: {
+                                                        ok: {
+                                                            text: 'باشه',
+                                                            btnClass: 'btn-primary',
+                                                        }
+                                                    }
+                                                });
 
-                                if (response['error'])
-                                    alert(response['error']);
-
-                                $('#dg').datagrid('reload');
-                            });
-                        }
+                                            $('#dg').datagrid('reload');
+                                        });
+                                    }
+                                }
+                            }
+                        });
                     }
                 }
                 ]

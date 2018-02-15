@@ -9,16 +9,24 @@ mix.js([
 ], 'public/js/admin.js')
     .sass('resources/assets/admin/sass/app.scss', 'public/css/admin.css');
 
+// jquery-confirm
+mix.scripts([
+    'node_modules/jquery-confirm/dist/jquery-confirm.min.js',
+    'resources/assets/admin/js/_layout/jquery-confirm.js',
+], 'public/assets/jquery-confirm/jquery-confirm.js')
+    .copy('node_modules/jquery-confirm/dist/jquery-confirm.min.css', 'public/assets/jquery-confirm/jquery-confirm.css');
+
+
 // Tiny MCE
 mix.js('resources/assets/_assets/admin/tinymce/init.js', 'public/assets/tinymce/tinymce.js')
-    .copyDirectory('node_modules/tinymce/skins','public/assets/tinymce/skins')
-    .copy('node_modules/tinymce-i18n/langs/fa_IR.js','public/assets/tinymce/langs/fa_IR.js');
+    .copyDirectory('node_modules/tinymce/skins', 'public/assets/tinymce/skins')
+    .copy('node_modules/tinymce-i18n/langs/fa_IR.js', 'public/assets/tinymce/langs/fa_IR.js');
 
 // JEasyUi
 mix.js('resources/assets/_assets/admin/easyui/easyui.js', 'public/assets/easyui/easyui.js')
     .sass('resources/assets/admin/sass/_components/easyui/_init.scss', 'public/assets/easyui/easyui.css')
-    .copy('resources/assets/_assets/admin/easyui/files/filter.png','public/assets/easyui/filter.png')
-    .copyDirectory('resources/assets/_assets/admin/easyui/files/icons','public/assets/easyui/images');
+    .copy('resources/assets/_assets/admin/easyui/files/filter.png', 'public/assets/easyui/filter.png')
+    .copyDirectory('resources/assets/_assets/admin/easyui/files/icons', 'public/assets/easyui/images');
 
 
 // Bootstrap Date Picker
@@ -35,7 +43,7 @@ mix.scripts([
     'node_modules/selectize/dist/js/standalone/selectize.js',
     'resources/assets/admin/js/_layout/selectize.js'
 ], 'public/assets/selectize/selectize.js')
-    .copy('node_modules/selectize/dist/css/selectize.css','public/assets/selectize/selectize.css');
+    .copy('node_modules/selectize/dist/css/selectize.css', 'public/assets/selectize/selectize.css');
 
 // ----- Front -----
 

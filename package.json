@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "bootstrap-select": "^1.12.4",
+        "jquery-confirm": "^3.3.2",
         "md.bootstrappersiandatetimepicker": "^2.2.0",
         "selectize": "^0.12.4",
         "tinymce": "^4.7.4",
