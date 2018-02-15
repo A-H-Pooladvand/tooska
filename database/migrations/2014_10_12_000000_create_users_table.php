@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('password', 150);
             $table->softDeletes();
-            $table->enum('status', ['active', 'deactivate', 'suspended'])->comment('فعال، غیر فعال، معلق شده')->default('active');
+            $table->boolean('is_active')->default(false)->comment('فعال یا غیرفعال بودن اکانت');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -6,11 +6,11 @@
 namespace App\Http\Controllers\User\Admin;
 
 
+use App\Http\Controllers\Controller;
 use App\PermissionTitle;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function items(Request $request)
     {
-        $users = User::withTrashed()->select('id', 'name', 'family', 'username', 'mobile', 'created_at', 'deleted_at');
+        $users = User::withTrashed()->select('id', 'name', 'family', 'username', 'mobile', 'is_active', 'created_at', 'deleted_at');
 
         return $this->getGrid($request)->items($users);
     }
@@ -150,7 +150,8 @@ class UserController extends Controller
             'mobile' => $request['mobile'],
             'phone' => $request['phone'],
             'password' => $request['password'] === null ? $user->password : $request['password'],
-            'avatar' => $request['avatar'] === null ? $user->avatar : $request['avatar']
+            'avatar' => $request['avatar'] === null ? $user->avatar : $request['avatar'],
+            'is_active' => true
         ];
     }
 

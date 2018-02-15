@@ -24,6 +24,15 @@
                     {field: 'username', sortable: true, title: 'نام کاربری', align: 'center'},
                     {field: 'mobile', sortable: true, title: 'موبایل', align: 'center'},
                     {
+                        field: 'is_active', sortable: true, title: 'وضعیت حساب', align: 'center',
+                        formatter: function (val, row) {
+                            if (val === true)
+                                return 'فعال';
+                            else
+                                return 'غیرفعال';
+                        }
+                    },
+                    {
                         field: 'deleted_at', sortable: true, title: 'تاریخ معلق شدن', align: 'center',
                         formatter: function (val, row) {
                             if (val === null)
@@ -82,13 +91,21 @@
                 ]
             });
 
-            dataGrid.datagrid('enableFilter'/*, [
-                {
-                    field: 'name',
-                    type: 'text',
-                    options: {precision: 1},
-                    op: ['equal', 'notequal', 'beginwith', 'endwith', 'less', 'lessorequal', 'greater', 'greaterorequal']
-                }]*/);
+            dataGrid.datagrid('enableFilter', [{
+                field: 'is_active',
+                type: 'combobox',
+                options: {
+                    panelHeight: 'auto',
+                    data: [
+                        {value: '', text: 'همه'},
+                        {value: 1, text: 'فعال'},
+                        {value: 0, text: 'غیرفعال'}],
+                    onChange: function (value) {
+                        let fieldName = this.name;
+                        doFilterOnChange(value, fieldName);
+                    }
+                }
+            }]);
 
 
             function id() {

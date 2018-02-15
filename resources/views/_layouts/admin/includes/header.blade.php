@@ -1,4 +1,4 @@
-<nav class="nav-bar">
+<nav class="nav-bar text-info">
     <a href="http://itooska.ir" class="pull-left text-center brand-name" target="_blank">
         <img src="{{ asset('files/_root/tooska.png') }}" width="180" height="50" alt="ITOOSKA.IR" title="itooska.ir">
     </a>
@@ -33,6 +33,6 @@
         </ul>
     </div>
 
-    <span class="pull-right"> {{ Auth::user()->fullName() }} </span>
+    <span class="pull-right m-l-1"> {{ Auth::user()->fullName() }} </span>
 
 </nav>

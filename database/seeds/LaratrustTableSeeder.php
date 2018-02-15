@@ -33,6 +33,7 @@ class LaratrustTableSeeder extends Seeder
                     'email' => 'madanizadegan@gmail.com',
                     'password' => '123',
                     'remember_token' => str_random(10),
+                    'is_active' => true
                 ],
                 'role' => [
                     'name' => 'superAdmin',
@@ -51,6 +52,7 @@ class LaratrustTableSeeder extends Seeder
                     'email' => 'qwe@qwe.com',
                     'password' => 'qwe',
                     'remember_token' => str_random(10),
+                    'is_active' => true
                 ],
                 'role' => [
                     'name' => 'supporter',
@@ -69,6 +71,7 @@ class LaratrustTableSeeder extends Seeder
                     'email' => 'modir@gmail.com',
                     'password' => 'modir',
                     'remember_token' => str_random(10),
+                    'is_active' => true
                 ],
                 'role' => [
                     'name' => 'admin',
