@@ -3,14 +3,14 @@
 @section('content')
 
     <form action="{{ $form['action'] }}" method="post" id="form">
-        @if(!empty($form['method'])) {{ method_field($form['method']) }} @endif
+        {{ method_field($form['method'] ?? 'POST') }}
 
         <div class="row">
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="input_slug" class="control-label">نامک</label>
-                    <input id="input_slug" name="slug" type="text" class="form-control" placeholder="فقط حروف انگلیسی، زیرخط و یا خط تیره" @if(!empty($category['slug'])) value="{{ $category['slug'] }}" @endif>
+                    <input id="input_slug" name="slug" type="text" class="form-control" placeholder="فقط حروف انگلیسی، زیرخط و یا خط تیره" value="{{ $category->slug ?? '' }}">
                 </div>
             </div>
 
@@ -19,7 +19,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="input_title" class="control-label">عنوان دسته بندی</label>
-                    <input id="input_title" name="title" type="text" class="form-control" @if(!empty($category['title'])) value="{{ $category['title'] }}" @endif>
+                    <input id="input_title" name="title" type="text" class="form-control" value="{{ $category->title ?? '' }}">
                 </div>
             </div>
 

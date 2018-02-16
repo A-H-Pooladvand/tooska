@@ -3,7 +3,7 @@
 @section('content')
 
     <form action="{{ $form['action'] }}" method="post" id="form">
-        @if(!empty($form['method'])){{ method_field($form['method']) }}@endif
+        {{ method_field($form['method'] ?? 'POST') }}
 
         <div class="row">
 
@@ -11,19 +11,19 @@
 
                 <div class="form-group">
                     <label for="input_name" class="control-label">نامک</label>
-                    <input type="text" name="name" id="input_name" class="form-control" placeholder="فقط حروف انگلیسی و یا زیر خط و یا خط تیره" @if(!empty($role->name)) value="{{ $role->name }}" @endif>
+                    <input type="text" name="name" id="input_name" class="form-control" placeholder="فقط حروف انگلیسی و یا زیر خط و یا خط تیره" value="{{ $role->name ?? '' }}">
                 </div>
 
 
                 <div class="form-group">
                     <label for="input_display_name" class="control-label">نام نمایشی</label>
-                    <input type="text" name="display_name" id="input_display_name" class="form-control" placeholder="برای نمایش برای دیگران" @if(!empty($role->display_name)) value="{{ $role->display_name }}" @endif>
+                    <input type="text" name="display_name" id="input_display_name" class="form-control" placeholder="برای نمایش برای دیگران" value="{{ $role->display_name ?? '' }}">
                 </div>
 
 
                 <div class="form-group">
                     <label for="input_description" class="control-label">توضیحات</label>
-                    <textarea name="description" id="input_description" class="form-control" cols="30" rows="6" placeholder="توضیحاتی در مورد این دسترسی">@if(!empty($role->name)) {{ $role->description }} @endif</textarea>
+                    <textarea name="description" id="input_description" class="form-control" cols="30" rows="6" placeholder="توضیحاتی در مورد این دسترسی">{{ $role->description ?? '' }}</textarea>
                 </div>
 
             </div>

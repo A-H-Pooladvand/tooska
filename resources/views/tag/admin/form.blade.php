@@ -3,7 +3,7 @@
 @section('content')
 
     <form action="{{ $form['action'] }}" method="post" id="form">
-        @if(!empty($form['method'])) {{ method_field($form['method']) }} @endif
+        {{ method_field($form['method'] ?? 'POST') }}
 
         <div class="row">
 
@@ -12,7 +12,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="input_title" class="control-label">عنوان کلمه کلیدی</label>
-                    <input id="input_title" name="title" type="text" class="form-control" @if(!empty($tag['title'])) value="{{ $tag['title'] }}" @endif>
+                    <input id="input_title" name="title" type="text" class="form-control" value="{{ $tag->title ?? '' }}">
                 </div>
             </div>
 

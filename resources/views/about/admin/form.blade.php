@@ -8,7 +8,7 @@
         <div class="form-group">
             @script(tinymce/tinymce.js)
             <label for="input_content" class="control-label">محتوا</label>
-            <textarea name="content" id="input_content" class="tinymce">@if(!empty($about['content'])){{ $about['content'] }}@endif</textarea>
+            <textarea name="content" id="input_content" class="tinymce">{{ $about->content ?? '' }}</textarea>
         </div>
 
     </form>

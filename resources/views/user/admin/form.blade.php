@@ -3,7 +3,7 @@
 @section('content')
 
     <form action="{{ $form['action'] }}" method="post" id="form">
-        @if(!empty($form['method'])) {{ method_field($form['method']) }} @endif
+        {{ method_field($form['method'] ?? 'POST') }}
 
         <div class="row">
 
@@ -15,7 +15,7 @@
 
                         <div class="form-group">
                             <label for="name" class="control-label">نام</label>
-                            <input id="name" name="name" type="text" class="form-control" @if(!empty($user['name'])) value="{{ $user['name'] }}" @endif>
+                            <input id="name" name="name" type="text" class="form-control" value="{{ $user->name ?? '' }}">
                         </div>
                     </div>
 
@@ -23,7 +23,7 @@
 
                         <div class="form-group">
                             <label for="family" class="control-label">نام خانوادگی</label>
-                            <input id="family" name="family" type="text" class="form-control" @if(!empty($user['family'])) value="{{ $user['family'] }}" @endif>
+                            <input id="family" name="family" type="text" class="form-control" value="{{ $user->family ?? '' }}">
                         </div>
 
                     </div>
@@ -32,7 +32,7 @@
 
                         <div class="form-group">
                             <label for="username" class="control-label">نام کاربری</label>
-                            <input id="username" name="username" type="text" class="form-control" @if(!empty($user['username'])) value="{{ $user['username'] }}" @endif>
+                            <input id="username" name="username" type="text" class="form-control" value="{{ $user->username ?? '' }}">
                         </div>
 
                     </div>
@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             <label for="email" class="control-label">پست الکترونیکی</label>
-                            <input id="email" name="email" type="email" class="form-control" dir="ltr" @if(!empty($user['email'])) value="{{ $user['email'] }}" @endif>
+                            <input id="email" name="email" type="email" class="form-control" dir="ltr" value="{{ $user->email ?? '' }}">
                         </div>
 
                     </div>
@@ -50,7 +50,7 @@
 
                         <div class="form-group">
                             <label for="mobile" class="control-label">تلفن همراه</label>
-                            <input id="mobile" name="mobile" type="tel" class="form-control" dir="ltr" @if(!empty($user['mobile'])) value="{{ $user['mobile'] }}" @endif>
+                            <input id="mobile" name="mobile" type="tel" class="form-control" dir="ltr" value="{{ $user->mobile ?? '' }}">
                         </div>
 
                     </div>
@@ -59,7 +59,7 @@
 
                         <div class="form-group">
                             <label for="phone" class="control-label">تلفن منزل</label>
-                            <input id="phone" name="phone" type="tel" class="form-control" dir="ltr" @if(!empty($user['phone'])) value="{{ $user['phone'] }}" @endif>
+                            <input id="phone" name="phone" type="tel" class="form-control" dir="ltr" value="{{ $user->phone ?? '' }}">
                         </div>
 
                     </div>
@@ -132,7 +132,7 @@
 
             <div class="col-sm-4">
                 <div class="form-group">
-                    <img id="avatar-img" width="100%" src="@if(!empty($user['avatar'])) {{ $user['avatar'] }} @endif">
+                    <img id="avatar-img" width="100%" src="{{ $user->avatar ?? '#' }}">
                 </div>
             </div>
 
@@ -158,7 +158,7 @@
         <div class="pull-left">
             @if(!empty($user))
                 {{ Breadcrumbs::render('user-edit', $user) }}
-                @else
+            @else
                 {{ Breadcrumbs::render('user-create') }}
             @endif
         </div>

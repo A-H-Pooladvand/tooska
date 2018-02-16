@@ -6,7 +6,7 @@
     @style(datepicker/datepicker.css)
 
     <form action="{{ $form['action'] }}" method="post" id="form">
-        @if(!empty($form['method'])) {{ method_field($form['method']) }} @endif
+        {{ method_field($form['method'] ?? 'POST') }}
 
         <div class="row">
 
@@ -14,19 +14,19 @@
 
                 <div class="form-group">
                     <label for="input_title" class="control-label">عنوان</label>
-                    <input id="input_title" name="title" type="text" class="form-control" @if(!empty($blog['title'])) value="{{ $blog['title'] }}" @endif>
+                    <input id="input_title" name="title" type="text" class="form-control" value="{{ $blog->title ?? '' }}">
                 </div>
 
 
                 <div class="form-group">
                     <label for="input_summary" class="control-label">خلاصه مطلب</label>
-                    <textarea name="summary" id="input_summary" cols="30" rows="4" class="form-control">@if(!empty($blog['summary'])){{ $blog['summary'] }}@endif</textarea>
+                    <textarea name="summary" id="input_summary" cols="30" rows="4" class="form-control">{{ $blog->summary ?? '' }}</textarea>
                 </div>
 
                 <div class="form-group">
                     @script(tinymce/tinymce.js)
                     <label for="input_content" class="control-label">محتوا</label>
-                    <textarea name="content" id="input_content" class="tinymce">@if(!empty($blog['content'])){{ $blog['content'] }}@endif</textarea>
+                    <textarea name="content" id="input_content" class="tinymce">{{ $blog->content ?? '' }}</textarea>
                 </div>
 
             </div>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="form-group">
-                    <img id="image-preview" width="100%" src="@if(!empty($blog['image'])) {{ $blog['image'] }} @endif">
+                    <img id="image-preview" width="100%" src="{{ $blog->image ?? '' }}">
                 </div>
 
                 <div class="clearnfix"></div>
@@ -71,7 +71,7 @@
                                class="form-control datepicker"
                                id="input_publish_at" readonly
                                placeholder="لطفا تاریخ انتشار را تعیین نمایید"
-                               @if(!empty($blog['publish_at'])) value="{{ jdate($blog['publish_at'])->format('Y/m/d H:i:s') }}" @endif>
+                               value="{{ $blog->publish_at ?? '' }}">
                     </div>
                 </div>
 
