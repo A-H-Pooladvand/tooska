@@ -8,6 +8,7 @@
     @style(jquery-confirm/jquery-confirm.css)
 
     <table id="dg"></table>
+
     @push('scripts')
         <script>
             let dataGrid = $('#dg').datagrid({

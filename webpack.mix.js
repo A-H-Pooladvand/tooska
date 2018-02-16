@@ -39,7 +39,7 @@ mix.scripts([
         'public/assets/datepicker/datepicker.css');
 
 // Selectize
-mix.scripts([
+mix.babel([
     'node_modules/selectize/dist/js/standalone/selectize.js',
     'resources/assets/admin/js/_layout/selectize.js'
 ], 'public/assets/selectize/selectize.js')
