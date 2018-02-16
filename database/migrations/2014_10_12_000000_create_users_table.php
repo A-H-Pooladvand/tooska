@@ -22,9 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('phone', 30)->nullable();
             $table->string('avatar', 100)->nullable();
             $table->string('email', 100)->unique();
+            $table->string('verifyToken', 50)->nullable();
             $table->string('password', 150);
-            $table->softDeletes();
             $table->boolean('is_active')->default(false)->comment('فعال یا غیرفعال بودن اکانت');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

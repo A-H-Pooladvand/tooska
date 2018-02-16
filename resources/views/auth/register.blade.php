@@ -20,11 +20,25 @@
                             <div class="form-group-lg form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
                                 <div>
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="نام و نام خانوادگی">
+                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="نام">
 
                                     @if ($errors->has('name'))
                                         <span class="help-block">
                                 <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                                    @endif
+
+                                </div>
+                            </div>
+
+                            <div class="form-group-lg form-group{{ $errors->has('family') ? ' has-error' : '' }}">
+
+                                <div>
+                                    <input id="family" type="text" class="form-control" name="family" value="{{ old('family') }}" required autofocus placeholder="نام خانوادگی">
+
+                                    @if ($errors->has('family'))
+                                        <span class="help-block">
+                                <strong>{{ $errors->first('family') }}</strong>
                             </span>
                                     @endif
 

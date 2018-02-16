@@ -15,18 +15,15 @@ class ConfirmEmailAddress extends Mailable
      * @var User
      */
     public $user;
-    public $token;
 
     /**
      * Create a new message instance.
      *
      * @param User $user
-     * @param $token
      */
-    public function __construct(User $user, $token)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->token = $token;
     }
 
     /**

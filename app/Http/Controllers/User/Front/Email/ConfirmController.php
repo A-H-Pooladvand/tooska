@@ -13,13 +13,15 @@ class ConfirmController extends Controller
         return view('user.front.confirm_email.create');
     }
 
-    public function confirmUser(Request $request, $id)
+    public function confirmUser(Request $request, $id, $token)
     {
         $id = decrypt($id);
         $user = User::findOrFail($id);
 
-        $user->is_active = true;
-        $user->save();
+        if ($token === $user->token) {
+            $user->is_active = true;
+            $user->save();
+        }
 
         return redirect('/');
     }

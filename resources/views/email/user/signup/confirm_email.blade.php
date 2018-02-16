@@ -10,18 +10,12 @@
             font-family: sans-serif;
         }
 
-        form {
-            text-align: center;
+        * {
+            text-align: right;
         }
 
-        button {
-            background: #23d160;
-            border: 1px solid #1fbb56;
-            padding: 1rem;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: sans-serif;
+        form {
+            text-align: center;
         }
     </style>
 </head>
@@ -29,11 +23,7 @@
 
 <h1>سلام {{ $user->name . ' ' . $user->family }}</h1>
 <p>با تشکر از ثبت نام شما. شما میتوانید از طریق لینک زیر حساب کاربری خود را فعال نمایید.</p>
-<form action="{{ route('user.confirm.confirm', encrypt($user->id)) }}" method="POST">
-    <input type="hidden" name="_token" value="{{ $token }}">
-
-    <button type="submit">فعال سازی حساب کاربری</button>
-</form>
+<a href="{{ route('user.confirm.confirm', [encrypt($user->id), $user->token]) }}">{{ route('user.confirm.confirm', [encrypt($user->id), $user->token]) }}</a>
 
 </body>
 </html>

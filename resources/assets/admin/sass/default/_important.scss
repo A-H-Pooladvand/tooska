@@ -115,6 +115,13 @@ $sides: (top, right, bottom, left);
   color: font-color($brand-info) !important;
 }
 
+// Jquery-Confirm
+
+.jconfirm .jconfirm-box div.jconfirm-content-pane .jconfirm-content {
+  overflow: visible !important;
+}
+
+
 
 
 

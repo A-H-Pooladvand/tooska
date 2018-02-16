@@ -3,6 +3,7 @@
 
 <head>
     @include('_layouts.front.includes.styles')
+    @stack('page-styles')
     @stack('styles')
 </head>
 
@@ -21,6 +22,7 @@
 </footer>
 
 @include('_layouts.front.includes.scripts')
+@stack('page-scripts')
 @stack('scripts')
 </body>
 

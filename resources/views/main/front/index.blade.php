@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('main.front._includes.welcome')
+
     <div class="navbar">
         <a class="navbar-brand" href="#">Title</a>
         <ul class="nav navbar-nav">

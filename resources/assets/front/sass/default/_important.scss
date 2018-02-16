@@ -13,6 +13,12 @@ $sides: (top, right, bottom, left);
   }
 }
 
+// Jquery-Confirm
+
+.jconfirm .jconfirm-box div.jconfirm-content-pane .jconfirm-content {
+  overflow: visible !important;
+}
+
 .full-width {
   width: 100%;
 }
