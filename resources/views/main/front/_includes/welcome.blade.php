@@ -12,7 +12,7 @@
                         }
                     },
                     icon: 'fa fa-check-circle text-success',
-                    // title: 'خوش آمدید',
+                    title: 'خوش آمدید',
                     content: '{!! Session::get("welcome") !!}'
                 });
             });
