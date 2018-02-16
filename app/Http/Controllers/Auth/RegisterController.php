@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
         Session::flash('welcome', "ثبت نام شما با موفقیت انجام شد. <br> لطفا از طریق ایمیل خود نسبت به فعال سازی حساب خود اقدام نمایید.");
 
-        Mail::to($user)->send(new ConfirmEmailAddress($user));
+        Mail::to($user)->send(new ConfirmEmailAddress($user, config('app.name')));
 
         return $user;
     }

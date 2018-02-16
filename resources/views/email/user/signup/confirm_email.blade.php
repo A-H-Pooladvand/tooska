@@ -17,13 +17,18 @@
         form {
             text-align: center;
         }
+        h1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-<h1>سلام {{ $user->name . ' ' . $user->family }}</h1>
-<p>با تشکر از ثبت نام شما. شما میتوانید از طریق لینک زیر حساب کاربری خود را فعال نمایید.</p>
-<a href="{{ route('user.confirm.confirm', [encrypt($user->id), $user->token]) }}">{{ route('user.confirm.confirm', [encrypt($user->id), $user->token]) }}</a>
+<h1>{{ $appName }}</h1>
+<h2>سلام {{ $user->name . ' ' . $user->family }}</h2>
+<p>با تشکر از ثبت نام شما در {{ $appName }} .</p>
+<p>شما میتوانید از طریق لینک زیر حساب کاربری خود را فعال نمایید.</p>
+<a href="{{ route('user.confirm.confirm', [$user->id, $user->verifyToken]) }}">{{ route('user.confirm.confirm', [$user->id, $user->verifyToken]) }}</a>
 
 </body>
 </html>
