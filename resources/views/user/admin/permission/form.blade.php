@@ -18,12 +18,16 @@
                                 <strong>{{ $title['title'] }}</strong>
                             </h5>
                             @foreach($title['permissions'] as $permission)
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="permissions[]" value="{{ $permission['id'] }}" {{ in_array($permission['id'], $userPermissions) === true ? 'checked' : '' }}>
-                                        {{ $permission['display_name'] }}
-                                    </label>
+
+                                <label for="input_checkbox" class="sr-only"></label>
+                                <div class="pretty p-default p-curve p-pulse">
+                                    <input type="checkbox" id="input_checkbox" name="permissions[]" value="{{ $permission['id'] }}" type="checkbox" {{ in_array($permission['id'], $userPermissions) === true ? 'checked' : '' }} />
+                                    <div class="state p-primary">
+                                        <label>{{ $permission['display_name'] }}</label>
+                                    </div>
                                 </div>
+                                <br>
+
                             @endforeach
                         </div>
                     </div>

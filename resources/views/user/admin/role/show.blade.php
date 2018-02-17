@@ -45,11 +45,9 @@
                             <strong>{{ $title['title'] }}</strong>
                         </h5>
                         @foreach($title['permissions'] as $permission)
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="permissions[]" value="{{ $permission['id'] }}" @if(!empty($rolePermissions) && in_array($permission['id'], $rolePermissions)) checked @endif>
-                                    {{ $permission['display_name'] }}
-                                </label>
+                            <div>
+                                <i class="fa fa-fw {{ in_array($permission['id'], $rolePermissions) === true ? 'fa-check text-success' : 'fa-times text-danger' }}"></i>
+                                <span>{{ $permission['display_name'] }}</span>
                             </div>
                         @endforeach
                     </div>
