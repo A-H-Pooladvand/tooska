@@ -12787,6 +12787,34 @@ $('.bootstrap-select').selectpicker({
     style: 'btn-default',
     width: '100%'
 });
+
+// Animate.css
+$.fn.extend({
+    animateCss: function animateCss(animationName, callback) {
+        var animationEnd = function (el) {
+            var animations = {
+                animation: 'animationend',
+                OAnimation: 'oAnimationEnd',
+                MozAnimation: 'mozAnimationEnd',
+                WebkitAnimation: 'webkitAnimationEnd'
+            };
+
+            for (var t in animations) {
+                if (el.style[t] !== undefined) {
+                    return animations[t];
+                }
+            }
+        }(document.createElement('div'));
+
+        this.addClass('animated ' + animationName).one(animationEnd, function () {
+            $(this).removeClass('animated ' + animationName);
+
+            if (typeof callback === 'function') callback();
+        });
+
+        return this;
+    }
+});
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
@@ -14696,17 +14724,40 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 $(function () {
     var $sidebarNavigateCheck = true;
+
     $('.sidebar__item > li > a').click(function (e) {
         e.preventDefault();
     });
     $('.sidebar__item > li').click(function () {
+        var $this = $(this);
+        var $icon = $this.find('.sidebar-angles');
+        var $sub_menu = $this.find('ul');
+
         if ($sidebarNavigateCheck) {
             $sidebarNavigateCheck = false;
-            var $this = $(this);
-            $this.toggleClass('active');
-            var $icon = $this.find('.pull-right');
-            if ($icon.hasClass('fa-angle-down')) $icon.removeClass('fa-angle-down').addClass('fa-angle-up');else $icon.removeClass('fa-angle-up').addClass('fa-angle-down');
-            $sidebarNavigateCheck = true;
+
+            if ($sub_menu.hasClass('enabled')) {
+                $icon.removeClass('fa-angle-up icon-enabled').addClass('fa-angle-down');
+                $sub_menu.slideUp(400, function () {
+                    $sidebarNavigateCheck = true;
+                }).removeClass('enabled');
+            } else {
+                $('.sidebar__item .enabled').slideUp().removeClass('enabled');
+
+                $('.sidebar__item .icon-enabled').removeClass('icon-enabled fa-angle-up').addClass('fa-angle-down');
+                $icon.removeClass('fa-angle-down').addClass('fa-angle-up icon-enabled');
+
+                $sub_menu.addClass('enabled').slideDown(400, function () {
+                    $sidebarNavigateCheck = true;
+                });
+            }
+        }
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() >= 992) {
+            $('.sidebar').removeClass('active');
+            $('#dark-layout').hide();
         }
     });
 });

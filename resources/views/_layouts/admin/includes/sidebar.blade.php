@@ -1,3 +1,4 @@
+
 <div class="sidebar">
 
     <ul class="sidebar__item">
@@ -6,7 +7,7 @@
                 <a href="#">
                     <i class="{{ $menu['icon'] }}"></i>
                     <span>{{ $menu['title'] }}</span>
-                    <i class="fa fa-angle-down  pull-right"></i>
+                    <i class="fa fa-angle-down  pull-right sidebar-angles"></i>
                 </a>
                 @if(!empty($menu['sub']))
                     <ul>

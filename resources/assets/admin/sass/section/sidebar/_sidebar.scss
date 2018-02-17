@@ -1,21 +1,25 @@
 .sidebar {
-  width: 220px;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  width: 0;
   position: fixed;
   top: 60px;
-  height: 100%;
+  height: calc(100% - 60px);
   background: $base-color;
+  z-index: 1000;
+  overflow-y: scroll;
+
+  &.active {
+    width: 60%;
+  }
 
   > ul {
 
-    .active {
-      max-height: 300px;
-    }
-
     li {
-      max-height: 41px;
       position: relative;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      @include transition(max-height 500ms linear);
       overflow: hidden;
 
       &:last-child {
@@ -57,6 +61,7 @@
       }
 
       ul {
+        display: none;
 
         li {
           border-bottom: none;
@@ -68,4 +73,20 @@
       }
     }
   }
+}
+
+// ----- Responsive Layouts -----
+// If page width is higher than xs
+@media (min-width: $screen-md-min) {
+
+  .sidebar {
+    width: 220px;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  #admin-layout {
+    margin-right: 230px;
+  }
+
 }

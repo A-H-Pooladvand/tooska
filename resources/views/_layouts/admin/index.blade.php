@@ -9,6 +9,8 @@
 
 <body>
 
+<div id="dark-layout"></div>
+
 <header>
     @include('_layouts.admin.includes.header')
 </header>
