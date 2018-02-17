@@ -4,6 +4,7 @@ let mix = require('laravel-mix');
 mix.js([
     'resources/assets/admin/js/app.js',
     'resources/assets/admin/js/_layout/sidebar.js',
+    'resources/assets/admin/js/_layout/header.js',
     'resources/assets/admin/js/_layout/ajax_post.js',
     'public/vendor/laravel-filemanager/js/lfm.js',
 ], 'public/js/admin.js')

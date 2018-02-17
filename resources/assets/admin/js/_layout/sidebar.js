@@ -30,10 +30,16 @@ $(function () {
         }
     });
 
-    $(window).resize(function(){
-        if ($(window).width() >= 992){
+    $(window).resize(function () {
+        if ($(window).width() >= 992) {
             $('.sidebar').removeClass('active');
             $('#dark-layout').hide();
         }
+    });
+
+    $("a").on("click touchend", function (e) {
+        let el = $(this);
+        let link = el.attr("href");
+        window.location = link;
     });
 });
