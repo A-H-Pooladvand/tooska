@@ -1,3 +1,3 @@
 <?php
 
-Route::view('/', 'main.front.index')->name('home');
+Route::get('/', 'Main\Front\MainController@index')->name('home');

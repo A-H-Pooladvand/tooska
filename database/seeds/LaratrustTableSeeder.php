@@ -271,6 +271,56 @@ class LaratrustTableSeeder extends Seeder
                     ]
                 ]
             ],
+            [
+                'title' => 'چرا ما',
+                'detail' => [
+                    [
+                        'name' => 'create-why-choose-us',
+                        'display_name' => 'ایجاد چرا ما',
+                        'description' => 'توانایی ایجاد چرا ما',
+                    ],
+                    [
+                        'name' => 'read-why-choose-us',
+                        'display_name' => 'مشاهده چرا ما',
+                        'description' => 'توانایی مشاهده چرا ما',
+                    ],
+                    [
+                        'name' => 'edit-why-choose-us',
+                        'display_name' => 'ویرایش چرا ما',
+                        'description' => 'توانایی ویرایش چرا ما',
+                    ],
+                    [
+                        'name' => 'delete-why-choose-us',
+                        'display_name' => 'حذف چرا ما',
+                        'description' => 'توانایی حذف چرا ما',
+                    ]
+                ]
+            ],
+            [
+                'title' => 'طرح',
+                'detail' => [
+                    [
+                        'name' => 'create-plan',
+                        'display_name' => 'ایجاد طرح',
+                        'description' => 'توانایی ایجاد طرح',
+                    ],
+                    [
+                        'name' => 'read-plan',
+                        'display_name' => 'مشاهده طرح',
+                        'description' => 'توانایی مشاهده طرح',
+                    ],
+                    [
+                        'name' => 'edit-plan',
+                        'display_name' => 'ویرایش طرح',
+                        'description' => 'توانایی ویرایش طرح',
+                    ],
+                    [
+                        'name' => 'delete-plan',
+                        'display_name' => 'حذف طرح',
+                        'description' => 'توانایی حذف طرح',
+                    ]
+                ]
+            ],
         ];
 
         foreach ($permissions as $permission) {

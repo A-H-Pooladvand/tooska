@@ -10,6 +10,22 @@
 
 namespace App{
 /**
+ * App\About
+ *
+ * @property int $id
+ * @property string $content
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\About whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\About whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\About whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\About whereUpdatedAt($value)
+ */
+	class About extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Blog
  *
  * @property int $id
@@ -92,6 +108,22 @@ namespace App{
 
 namespace App{
 /**
+ * App\ContactUs
+ *
+ * @property int $id
+ * @property string $content
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ContactUs whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ContactUs whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ContactUs whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ContactUs whereUpdatedAt($value)
+ */
+	class ContactUs extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\MenuBuilder
  *
  */
@@ -137,6 +169,29 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PermissionTitle whereUpdatedAt($value)
  */
 	class PermissionTitle extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Plan
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $title
+ * @property string $content
+ * @property string $price
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereUserId($value)
+ */
+	class Plan extends \Eloquent {}
 }
 
 namespace App{
@@ -221,16 +276,19 @@ namespace App{
  * @property string|null $phone
  * @property string|null $avatar
  * @property string $email
+ * @property string|null $verifyToken
  * @property string $password
+ * @property bool $is_active فعال یا غیرفعال بودن اکانت
  * @property \Carbon\Carbon|null $deleted_at
- * @property string $status فعال، غیر فعال، معلق شده
  * @property string|null $remember_token
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property-read mixed $deleted_at_status
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $permissions
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Plan[] $plans
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\WhyChooseUs[] $why_choose_us
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
  * @method static bool|null restore()
@@ -240,6 +298,7 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereFamily($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereMobile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
@@ -247,12 +306,35 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRoleIs($role = '')
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUsername($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereVerifyToken($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
  */
 	class User extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\WhyChooseUs
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $title
+ * @property string $summary
+ * @property string $image
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\WhyChooseUs whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\WhyChooseUs whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\WhyChooseUs whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\WhyChooseUs whereSummary($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\WhyChooseUs whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\WhyChooseUs whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\WhyChooseUs whereUserId($value)
+ */
+	class WhyChooseUs extends \Eloquent {}
 }
 

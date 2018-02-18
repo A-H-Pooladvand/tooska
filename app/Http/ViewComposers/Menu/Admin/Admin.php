@@ -54,6 +54,22 @@ return [
         ]
     ],
     [
+        // Plan
+        'title' => 'طرح',
+        'icon' => 'fa fa-fw fa-briefcase',
+        'link' => '#',
+        'sub' => [
+            [
+                'title' => 'افزودن طرح',
+                'link' => route('admin.plan.create')
+            ],
+            [
+                'title' => 'لیست طرح ها',
+                'link' => route('admin.plan.index')
+            ]
+        ]
+    ],
+    [
         // Blog
         'title' => 'بلاگ',
         'icon' => 'fa fa-fw fa-newspaper-o',
@@ -98,6 +114,22 @@ return [
             [
                 'title' => 'لیست کلمات کلیدی',
                 'link' => route('admin.tag.index')
+            ]
+        ]
+    ],
+    [
+        // Why Choose Us
+        'title' => 'چرا ما',
+        'icon' => 'fa fa-fw fa-question-circle',
+        'link' => '#',
+        'sub' => [
+            [
+                'title' => 'افزودن چرا ما',
+                'link' => route('admin.why_choose_us.create')
+            ],
+            [
+                'title' => 'لیست چرا ما',
+                'link' => route('admin.why_choose_us.index')
             ]
         ]
     ],

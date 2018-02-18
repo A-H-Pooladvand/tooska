@@ -101,4 +101,15 @@ class User extends Authenticatable
     {
         $this->notify(new MailResetPasswordToken($token));
     }
+
+    // Tooska
+    public function why_choose_us()
+    {
+        return $this->hasMany(WhyChooseUs::class, 'user_id');
+    }
+
+    public function plans()
+    {
+        return $this->hasMany(Plan::class, 'user_id');
+    }
 }

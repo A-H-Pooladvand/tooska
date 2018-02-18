@@ -4,23 +4,24 @@
 
     @include('main.front._includes.welcome')
 
-    <div class="navbar">
-        <a class="navbar-brand" href="#">Title</a>
-        <ul class="nav navbar-nav">
-            <li class="active">
-                <a href="{{ route('login') }}">ورود</a>
-            </li>
-            <li>
-                <a href="{{ route('register') }}">ثبت نام</a>
-            </li>
-            <li>
-                <form action="{{ route('logout') }}" method="post">
-                    {{ csrf_field() }}
-
-                    <button class="btn btn-success">خروج</button>
-                </form>
-            </li>
-        </ul>
-    </div>
+    {{--$seo_class = 'db';--}}
+    @include('public.header')
+    @include('public.menu')
+    @include('main.front._includes.home_heading_image')
+    @include('main.front._includes.choose_us')
+    {{--@include('main.front._includes.analyze_tools')--}}
+    {{--@include('main.front._includes.seo_services')--}}
+    @include('public.seo_expert_team')
+    @include('main.front._includes.pricing')
+    @include('main.front._includes.working_process')
+    @include('main.front._includes.case_studio_slider')
+    {{--@include('main.front._includes.why_seomarkt')--}}
+    {{--@include('main.front._includes.testimonials')--}}
+    {{--@include('main.front._includes.our_skills')--}}
+    {{--@include('main.front._includes.get_quote')--}}
+    @include('main.front._includes.seo_blog')
+{{--    @include('public.brands_teams')--}}
+    {{--@include('public.footer')--}}
+    @include('public.ending')
 
 @stop

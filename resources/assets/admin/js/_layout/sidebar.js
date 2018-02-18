@@ -37,9 +37,9 @@ $(function () {
         }
     });
 
-    $("a").on("click touchend", function (e) {
-        let el = $(this);
-        let link = el.attr("href");
-        window.location = link;
-    });
+    // $("a").on("click touchend", function (e) {
+    //     let el = $(this);
+    //     let link = el.attr("href");
+    //     window.location = link;
+    // });
 });

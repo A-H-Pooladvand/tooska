@@ -148,3 +148,57 @@ Breadcrumbs::register('tag-edit', function ($breadcrumbs, $tag) {
     $breadcrumbs->parent('tag-show', $tag);
     $breadcrumbs->push('ویرایش کلمه کلیدی', route('admin.tag.edit', $tag->id));
 });
+
+/**
+ * why-choose-us
+ */
+
+// why-choose-uss
+Breadcrumbs::register('why_choose_us', function ($breadcrumbs) {
+    $breadcrumbs->push('لیست چرا ما', route('admin.tag.index'));
+});
+
+// why-choose-us > Create
+Breadcrumbs::register('why_choose_us-create', function ($breadcrumbs) {
+    $breadcrumbs->parent('why_choose_us');
+    $breadcrumbs->push('افزودن چرا ما', route('admin.why_choose_us.create'));
+});
+
+// why-choose-us > Show
+Breadcrumbs::register('why_choose_us-show', function ($breadcrumbs, $why_choose_us) {
+    $breadcrumbs->parent('why_choose_us');
+    $breadcrumbs->push('مشاهده چرا ما', route('admin.why_choose_us.show', $why_choose_us->id));
+});
+
+// why-choose-uss > Show > Edit
+Breadcrumbs::register('why_choose_us-edit', function ($breadcrumbs, $why_choose_us) {
+    $breadcrumbs->parent('why_choose_us-show', $why_choose_us);
+    $breadcrumbs->push('ویرایش چرا ما', route('admin.why_choose_us.edit', $why_choose_us->id));
+});
+
+/**
+ * Plan
+ */
+
+// Plans
+Breadcrumbs::register('plan', function ($breadcrumbs) {
+    $breadcrumbs->push('لیست طرح ها', route('admin.tag.index'));
+});
+
+// Plan > Create
+Breadcrumbs::register('plan-create', function ($breadcrumbs) {
+    $breadcrumbs->parent('plan');
+    $breadcrumbs->push('افزودن طرح', route('admin.plan.create'));
+});
+
+// Plan > Show
+Breadcrumbs::register('plan-show', function ($breadcrumbs, $plan) {
+    $breadcrumbs->parent('plan');
+    $breadcrumbs->push('مشاهده طرح', route('admin.plan.show', $plan->id));
+});
+
+// Plans > Show > Edit
+Breadcrumbs::register('plan-edit', function ($breadcrumbs, $plan) {
+    $breadcrumbs->parent('plan-show', $plan);
+    $breadcrumbs->push('ویرایش طرح', route('admin.plan.edit', $plan->id));
+});

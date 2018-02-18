@@ -180,6 +180,7 @@ return [
          */
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Telegram\Bot\Laravel\TelegramServiceProvider::class,
+        Amir2b\ImageFit\ImageFitServiceProvider::class,
 
         /*
          * Application Service Providers...
