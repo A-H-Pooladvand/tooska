@@ -6,11 +6,11 @@
             </div>
             <div class="tagline">&nbsp; <p class="element"></p> &nbsp;</div>
             <div class="infos">
-                <span class="info"><i class="fa fa-star"></i> لورم</span>
-                <span class="info"><i class="fa fa-star"></i> طرح‌نما</span>
-                <span class="info"><i class="fa fa-star"></i> لورم ایپسوم</span>
-                <span class="info"><i class="fa fa-star"></i> لورم ایپسوم یا طرح‌نما </span>
-                <span class="info"><i class="fa fa-star"></i> صفحه و ارایه</span>
+                <span class="info"><i class="fa fa-star"></i>&nbsp;تحلیل</span>
+                <span class="info"><i class="fa fa-star"></i>&nbsp;خلاقیت</span>
+                <span class="info"><i class="fa fa-star"></i>&nbsp;نواوری</span>
+                <span class="info"><i class="fa fa-star"></i>&nbsp;توسعه</span>
+                <span class="info"><i class="fa fa-star"></i>&nbsp;تولید</span>
             </div>
         </div>
     </div>
