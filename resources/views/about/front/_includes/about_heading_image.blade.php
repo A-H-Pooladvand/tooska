@@ -4,7 +4,7 @@
             <div class="heading-holder">
                 <h1>درباره ما</h1>
             </div>
-            <p class="tagline">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</p>
+            <p class="tagline">شرکت مهندسی آیین اندیش توسکا، ایده، تحلیل، خلاقیت و پردازش</p>
         </div>
     </div>
 </section>

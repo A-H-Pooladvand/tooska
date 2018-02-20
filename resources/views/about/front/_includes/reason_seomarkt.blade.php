@@ -1,7 +1,7 @@
 <section class="section lb">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
+        {{--<div class="row">--}}
+            {{--<div class="col-md-6">
                 <div class="section-title text-left">
                     <h5>لورم ایپسوم یا طرح‌نما</h5>
                     <h3>طراحان گرافیک</h3>
@@ -16,33 +16,33 @@
                     <h5>Thanks for the awesome video by <a href="http://videohive.net/item/seo-promotion-animated-flat-icons-pack/13025412?ref=wordpressshowcase">Viagraphix</a></h5>
                 </div><!-- end box -->
 
-            </div><!-- end col -->
+            </div><!-- end col -->--}}
 
-            <div class="col-md-6 col-sm-12 mobile30">
+            {{--<div class="col-md-6 col-sm-12 mobile30">--}}
                 <div class="section-title text-left">
-                    <h5>لورم ایپسوم یا طرح‌نما</h5>
-                    <h3>متن‌های آزمایشی</h3>
+                    <h5>پلی به سوی فردا</h5>
+                    <h3>درباره ما</h3>
                     <hr>
                 </div><!-- end title -->
 
                 <div class="text-widget">
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد.</p>
+                    <p>{{ $about->content }}</p>
 
-                    <ul class="check m20">
+             {{--       <ul class="check m20">
                         <li>لورم ایپسوم یا طرح‌نما</li>
                         <li>لورم ایپسوم یا طرح‌نما</li>
                         <li>لورم ایپسوم یا طرح‌نما</li>
                         <li>لورم ایپسوم یا طرح‌نما</li>
                         <li>لورم ایپسوم یا طرح‌نما</li>
-                    </ul><!-- end check -->
+                    </ul><!-- end check -->--}}
 
                 </div><!-- end text-widget -->
-            </div><!-- end col -->
-        </div><!-- end row -->
+            {{--</div><!-- end col -->--}}
+        {{--</div><!-- end row -->--}}
 
         <hr class="invis">
 
-        <div class="row">
+        {{--<div class="row">
             <div class="col-md-4 col-sm-12">
                 <div class="skills-style">
                     <div class="skills-wrapper">
@@ -78,8 +78,8 @@
                     </div><!-- end skills-wrapper -->
                 </div>
             </div>
-        </div><!-- end row -->
-        <div class="row">
+        </div><!-- end row -->--}}
+     {{--   <div class="row">
             <div class="col-md-4 col-sm-12">
                 <div class="skills-style">
                     <div class="skills-wrapper">
@@ -115,6 +115,6 @@
                     </div><!-- end skills-wrapper -->
                 </div>
             </div>
-        </div><!-- end row -->
-    </div><!-- end container -->          
+        </div><!-- end row -->--}}
+    </div><!-- end container -->
 </section>

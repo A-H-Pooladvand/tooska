@@ -24,7 +24,7 @@
                         </li>
                         <li><a href="portfolio.php">نمونه کارها</a></li>
                         <li><a href="{{ route('blog.index') }}">اخبار</a></li>
-                        <li><a href="contact.php">ارتباط با ما</a></li>
+                        <li><a href="{{ route('contact.show') }}">ارتباط با ما</a></li>
                         {{--<li class="lastlink"><a class="btn btn-success" href="seo-analysis.php"><i class="glyphicon glyphicon-search"></i> free seo analysis</a></li>--}}
                     </ul>
                 </div>

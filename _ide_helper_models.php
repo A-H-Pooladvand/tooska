@@ -179,7 +179,7 @@ namespace App{
  * @property int $user_id
  * @property string $title
  * @property string $content
- * @property string $price
+ * @property int $price
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \App\User $user

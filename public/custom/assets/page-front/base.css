@@ -13062,7 +13062,7 @@ p {
 .img-4,
 .img-5,
 .img-6 {
-    border: 3px solid #FEC606 !important;
+    border: 2px solid rgba(254, 198, 6, 0.51) !important;
     padding: 0.3rem;
 }
 
@@ -13092,6 +13092,18 @@ p {
     border: 1px dashed #aaa;
     width: 200px;
     height: 200px;
+}
+
+.floating-circle .circleD {
+    border: 1px dashed #aaa;
+    width: 500px;
+    height: 500px;
+}
+
+.floating-circle .circleE {
+    border: 1px dashed #aaa;
+    width: 300px;
+    height: 300px;
 }
 
 @keyframes rotateA {

@@ -21,7 +21,7 @@
     {{--@include('main.front._includes.get_quote')--}}
     @include('main.front._includes.seo_blog')
 {{--    @include('public.brands_teams')--}}
-    {{--@include('public.footer')--}}
+    @include('public.footer')
     @include('public.ending')
 
 @stop

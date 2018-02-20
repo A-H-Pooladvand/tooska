@@ -1,0 +1,7 @@
+@include ('public.header')
+@include ('public.menu')
+@include ('contact.front._includes.contact_heading_image')
+@include ('contact.front._includes.contact_info')
+@include ('contact.front._includes.contact_form')
+@include ('public.footer')
+@include ('public.ending')

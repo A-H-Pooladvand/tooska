@@ -3,9 +3,9 @@
     <div class="container">
         <div class="text-block">
             <div class="heading-holder">
-                <h1>اخبار سئو</h1>
+                <h1>اخبار بلاگ</h1>
             </div>
-            <p class="tagline">چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر</p>
+            <p class="tagline">شرکت مهندسی آیین اندیش توسکا، ایده، تحلیل، خلاقیت و پردازش</p>
         </div>
     </div>
 </section>
