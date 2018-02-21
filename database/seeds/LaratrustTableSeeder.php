@@ -268,6 +268,11 @@ class LaratrustTableSeeder extends Seeder
                         'name' => 'edit-contact',
                         'display_name' => 'ویرایش تماس با ما',
                         'description' => 'توانایی ویرایش تماس با ما',
+                    ],
+                    [
+                        'name' => 'delete-contact',
+                        'display_name' => 'حذف تماس با ما',
+                        'description' => 'توانایی حذف تماس با ما',
                     ]
                 ]
             ],

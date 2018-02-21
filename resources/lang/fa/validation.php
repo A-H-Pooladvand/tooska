@@ -51,9 +51,9 @@ return [
     'ipv6'                 => 'The :attribute must be a valid IPv6 address.',
     'json'                 => 'The :attribute must be a valid JSON string.',
     'max'                  => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => 'فیلد :attribute نباید بزرگتر از :max باشد',
         'file'    => 'The :attribute may not be greater than :max kilobytes.',
-        'string'  => 'The :attribute may not be greater than :max characters.',
+        'string'  => 'فیلد :attribute نباید بیشتر از :max کاراکتر باشد',
         'array'   => 'The :attribute may not have more than :max items.',
     ],
     'mimes'                => 'The :attribute must be a file of type: :values.',
@@ -127,6 +127,8 @@ return [
         'description' => 'توضیحات',
         'display_name' => 'نام نمایشی',
         'permissions' => 'دسترسی ها',
+        'subject' => 'موضوع',
+        'content' => 'محتوا',
     ],
 
 ];

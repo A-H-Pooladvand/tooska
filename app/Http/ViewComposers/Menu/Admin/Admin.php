@@ -156,8 +156,12 @@ return [
         'link' => '#',
         'sub' => [
             [
+                'title' => 'لیست تماس ها',
+                'link' => route('admin.contact.contacts.index')
+            ],
+            [
                 'title' => 'مشاهده تماس با ما',
-                'link' => route('admin.contact.show',1)
+                'link' => route('admin.contact.show')
             ],
             [
                 'title' => 'ویرایش تماس با ما',

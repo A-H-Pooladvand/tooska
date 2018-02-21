@@ -14,7 +14,6 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="{{ route('home') }}">صفحه اصلی</a></li>
-                        <li><a href="{{ route('about.show') }}">درباره ما</a></li>
                         <li class="dropdown hasmenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">خدمات <span class="fa fa-angle-down"></span></a>
                             <ul class="dropdown-menu">
@@ -23,7 +22,8 @@
                             </ul>
                         </li>
                         <li><a href="portfolio.php">نمونه کارها</a></li>
-                        <li><a href="{{ route('blog.index') }}">اخبار</a></li>
+                        <li><a href="{{ route('blog.index') }}">بلاگ</a></li>
+                        <li><a href="{{ route('about.show') }}">درباره ما</a></li>
                         <li><a href="{{ route('contact.show') }}">ارتباط با ما</a></li>
                         {{--<li class="lastlink"><a class="btn btn-success" href="seo-analysis.php"><i class="glyphicon glyphicon-search"></i> free seo analysis</a></li>--}}
                     </ul>

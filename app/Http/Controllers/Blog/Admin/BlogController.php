@@ -97,10 +97,7 @@ class BlogController extends Controller
     {
         $ids = explode(',', $id);
 
-        if ($this->preventUserToDeleteSuperAdmins($ids))
-            return ['error' => 'شما اجازه حذف کاربران برتر را ندارید'];
-
-        User::withTrashed()->whereIn('id', $ids)->forceDelete();
+        Blog::whereIn('id', $ids)->forceDelete();
     }
 
     // Methods

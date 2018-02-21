@@ -2,31 +2,35 @@
 
 namespace App\Http\Controllers\Contact\Admin;
 
-use App\ContactUs;
-use Illuminate\Http\Request;
+use App\Contact;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function show()
+    public function index()
     {
-        $contact = ContactUs::findOrFail(1);
-        return view('contact.admin.show', compact('contact'));
+        return view('contact.admin.contacts.index');
     }
 
-    public function edit()
+    public function items(Request $request)
     {
-        $contact = ContactUs::findOrFail(1);
+        $contacts = Contact::select(['id', 'name', 'phone', 'email', 'subject', 'created_at', 'updated_at']);
 
-        return view('contact.admin.form', compact('contact'));
+        return $this->getGrid($request)->items($contacts);
     }
 
-    public function update(Request $request)
+    public function show($id)
     {
-        $contact = ContactUs::findOrFail(1);
-        $contact->content = $request['content'];
-        $contact->save();
+        $contact = Contact::findOrFail($id);
+//        return $contact;
+        return view('contact.admin.contacts.show', compact('contact'));
+    }
 
-        return ['message' => 'تماس با ما با موفقیت ویرایش گردید.'];
+    public function destroy($id)
+    {
+        $ids = explode(',', $id);
+
+        Contact::whereIn('id', $ids)->delete();
     }
 }

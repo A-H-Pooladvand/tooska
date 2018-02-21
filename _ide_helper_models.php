@@ -108,6 +108,30 @@ namespace App{
 
 namespace App{
 /**
+ * App\Contact
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $phone
+ * @property string $subject
+ * @property string $content
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact whereSubject($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contact whereUpdatedAt($value)
+ */
+	class Contact extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\ContactUs
  *
  * @property int $id

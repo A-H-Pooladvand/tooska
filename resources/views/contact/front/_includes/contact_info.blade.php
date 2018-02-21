@@ -7,49 +7,14 @@
                         <i class="fa fa-envelope-o"></i>
                     </div>
                     <div class="service-content">
-                        <h3>لورم ایپسوم یا طرح‌نما؟</h3>
+                        <h3>سوالی دارید؟</h3>
                         <hr>
                         <p>
-                            <a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="fb888e8b8b94898fbb82948e8988928f9ed5989496">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function (t, e, r, n, c, a, p) {
-                                try {
-                                  t = document.currentScript || function () {
-                                    for (t = document.getElementsByTagName('script'), e = t.length; e--; )
-                                      if (t[e].getAttribute('data-cfhash'))
-                                        return t[e]
-                                  }();
-                                  if (t && (c = t.previousSibling)) {
-                                    p = t.parentNode;
-                                    if (a = c.getAttribute('data-cfemail')) {
-                                      for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2)
-                                        e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2);
-                                      p.replaceChild(document.createTextNode(decodeURIComponent(e)), c)
-                                    }
-                                    p.removeChild(t)
-                                  }
-                                } catch (u) {
-                                }
-                              }()/* ]]> */</script>
+                            <a href="mailto:info@itooska.ir">info@itooska.ir</a>
+                            <a href="mailto:madanizadegan@gmail.com">madanizadegan@gmail.com</a>
                         </p>
                         <p>
-                            <a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="4e262b2222210e37213b3c3d273a2b602d2123">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function (t, e, r, n, c, a, p) {
-                                try {
-                                  t = document.currentScript || function () {
-                                    for (t = document.getElementsByTagName('script'), e = t.length; e--; )
-                                      if (t[e].getAttribute('data-cfhash'))
-                                        return t[e]
-                                  }();
-                                  if (t && (c = t.previousSibling)) {
-                                    p = t.parentNode;
-                                    if (a = c.getAttribute('data-cfemail')) {
-                                      for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2)
-                                        e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2);
-                                      p.replaceChild(document.createTextNode(decodeURIComponent(e)), c)
-                                    }
-                                    p.removeChild(t)
-                                  }
-                                } catch (u) {
-                                }
-                              }()/* ]]> */</script>
+
                         </p>
                     </div>
                 </div>
@@ -61,14 +26,10 @@
                         <i class="fa fa-phone"></i>
                     </div>
                     <div class="service-content">
-                        <h3>لورم ایپسوم یا طرح‌نما</h3>
+                        <h3>همین امروز تماس بگیرید</h3>
                         <hr>
-                        <p>
-                            +90 987 654 32 10
-                        </p>
-                        <p>
-                            +90 987 654 32 11
-                        </p>
+                        <p>82841529 - 021</p>
+                        <p>7641982 - 0912</p>
                     </div>
                 </div>
             </div><!-- end col -->
@@ -79,14 +40,9 @@
                         <i class="fa fa-map-marker"></i>
                     </div>
                     <div class="service-content">
-                        <h3>لورم ایپسوم یا طرح‌نما</h3>
+                        <h3>آدرس</h3>
                         <hr>
-                        <p>
-                            21 صفحه و ارایه اولیه شکل ظاهری
-                        </p>
-                        <p>
-                            198st صفحه و ارایه اولیه شکل ظاهری
-                        </p>
+                        <p>میدان نوبنیاد - خیابان گلزار - کوچه ارکیده - پلاک 14 - زنگ 18</p>
                     </div>
                 </div>
             </div><!-- end col -->

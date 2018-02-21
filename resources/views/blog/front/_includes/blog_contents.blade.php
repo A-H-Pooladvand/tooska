@@ -59,7 +59,7 @@
                             <button class="btn btn-primary btn-block">عضویت</button>
                         </form>
                     </div><!-- end newsletter -->
-                </div><!-- end widget -->--}}
+                 </div><!-- end widget -->--}}
 
                 <div class="widget clearfix">
                     <div class="section-title text-left">

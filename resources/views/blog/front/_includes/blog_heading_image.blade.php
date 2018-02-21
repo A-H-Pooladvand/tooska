@@ -1,4 +1,3 @@
-
 <section id="page-header" class="visual">
     <div class="container">
         <div class="text-block">

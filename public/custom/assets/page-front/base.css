@@ -13,6 +13,7 @@ html {
 
 body {
     margin: 0;
+    text-align: justify;
 }
 
 article,
@@ -13077,31 +13078,31 @@ p {
 }
 
 .floating-circle .circleA {
-    border: 1px dashed #aaa;
+    border: 1px dashed #ccc;
     width: 600px;
     height: 600px;
 }
 
 .floating-circle .circleB {
-    border: 1px dashed #aaa;
+    border: 1px dashed #ccc;
     width: 400px;
     height: 400px;
 }
 
 .floating-circle .circleC {
-    border: 1px dashed #aaa;
+    border: 1px dashed #ccc;
     width: 200px;
     height: 200px;
 }
 
 .floating-circle .circleD {
-    border: 1px dashed #aaa;
+    border: 1px dashed #ccc;
     width: 500px;
     height: 500px;
 }
 
 .floating-circle .circleE {
-    border: 1px dashed #aaa;
+    border: 1px dashed #ccc;
     width: 300px;
     height: 300px;
 }

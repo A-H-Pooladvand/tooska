@@ -177,12 +177,12 @@ Breadcrumbs::register('why_choose_us-edit', function ($breadcrumbs, $why_choose_
 });
 
 /**
- * Plan
+ * Contact
  */
 
 // Plans
 Breadcrumbs::register('plan', function ($breadcrumbs) {
-    $breadcrumbs->push('لیست طرح ها', route('admin.tag.index'));
+    $breadcrumbs->push('لیست طرح ها', route('admin.plan.index'));
 });
 
 // Plan > Create
@@ -202,3 +202,20 @@ Breadcrumbs::register('plan-edit', function ($breadcrumbs, $plan) {
     $breadcrumbs->parent('plan-show', $plan);
     $breadcrumbs->push('ویرایش طرح', route('admin.plan.edit', $plan->id));
 });
+
+/**
+ * Contact
+ */
+
+// Contacts
+Breadcrumbs::register('contact', function ($breadcrumbs) {
+    $breadcrumbs->push('لیست تماس ها', route('admin.contact.contacts.index'));
+});
+
+// Contact > Show
+Breadcrumbs::register('contact-show', function ($breadcrumbs, $contact) {
+    $breadcrumbs->parent('contact');
+    $breadcrumbs->push('مشاهده تماس', route('admin.contact.contacts.show', $contact->id));
+});
+
+
