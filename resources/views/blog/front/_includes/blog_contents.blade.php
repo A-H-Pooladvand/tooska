@@ -8,12 +8,12 @@
                         <div class="row post-micro clearfix">
                             <div class="col-md-4">
                                 <div class="post-media clearfix">
-                                    <a href="single.html" title="{{ $item->title }}"><img src="{{ image_url($item->image, 25,25, true) }}" alt="{{ $item->title }}" class="img-responsive"></a>
+                                    <a href="{{ route('blog.show', $item->id) }}" title="{{ $item->title }}"><img src="{{ image_url($item->image, 25,25, true) }}" alt="{{ $item->title }}" class="img-responsive"></a>
                                 </div><!-- end post-media -->
                             </div><!-- end col -->
 
                             <div class="col-md-8">
-                                <div class="large-post-meta">
+                                {{--<div class="large-post-meta">
                                     <span class="avatar"><a href="author.html"><img src="{{ asset('custom/images/upload/avatar_01.png') }}" alt="" class="img-circle">{{ $item->user->fullName() }}</a></span>
                                     <small>&#124;</small>
                                     <span><a href="category.html"><i class="fa fa-clock-o"></i> {{ $item->created_at }}</a></span>
@@ -21,17 +21,17 @@
                                     <span class="hidden-xs"><a href="single.html#comments"><i class="fa fa-comments-o"></i> 12</a></span>
                                     <small class="hidden-xs">&#124;</small>
                                     <span class="hidden-xs"><a href="single.html"><i class="fa fa-eye"></i> 444</a></span>
-                                </div><!-- end meta -->
-                                <h3 class="entry-title"><a href="single.html" title="">{{ $item->title }}</a></h3>
-                                <p><a href="single.html" title="">{{ $item->summary }}</a></p>
-                                <div class="post-sharing clearfix">
+                                </div><!-- end meta -->--}}
+                                <h3 class="entry-title"><a href="{{ route('blog.show', $item->id) }}" title="">{{ $item->title }}</a></h3>
+                                <p><a href="{{ route('blog.show', $item->id) }}" title="">{{ $item->summary }}</a></p>
+                             {{--   <div class="post-sharing clearfix">
                                     <ul class="list-inline social-small">
                                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                     </ul>
-                                </div><!-- end post-sharing -->
-                                <a href="single.html" title="{{ $item->title }}" class="readmore"> ادامه مطلب</a>
+                                </div><!-- end post-sharing -->--}}
+                                <a href="{{ route('blog.show', $item->id) }}" title="{{ $item->title }}" class="readmore"> ادامه مطلب</a>
                             </div><!-- end col -->
                         </div><!-- end post-micro -->
                     </div><!-- end wrapper -->
