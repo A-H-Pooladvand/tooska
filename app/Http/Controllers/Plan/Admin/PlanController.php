@@ -106,6 +106,7 @@ class PlanController extends Controller
         return [
             'title' => $request['title'],
             'price' => $request['price'],
+            'summary' => $request['summary'],
             'content' => $request['content']
         ];
     }

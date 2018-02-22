@@ -14,14 +14,8 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="{{ route('home') }}">صفحه اصلی</a></li>
-                        <li class="dropdown hasmenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">خدمات <span class="fa fa-angle-down"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="services.php">همه خدمات</a></li>
-                                <li><a href="single-service.html">لورم ایپسوم</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="portfolio.php">نمونه کارها</a></li>
+                        <li><a href="{{ route('service.index') }}">خدمات</a></li>
+                        <li><a href="{{ route('sample.index') }}">نمونه کارها</a></li>
                         <li><a href="{{ route('blog.index') }}">بلاگ</a></li>
                         <li><a href="{{ route('about.show') }}">درباره ما</a></li>
                         <li><a href="{{ route('contact.show') }}">ارتباط با ما</a></li>

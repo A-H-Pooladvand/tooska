@@ -70,6 +70,7 @@ namespace App{
  * @property string $slug
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Blog[] $blogs
  * @property-read mixed $category_type_fa
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCategoryType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category whereCreatedAt($value)
@@ -112,8 +113,8 @@ namespace App{
  *
  * @property int $id
  * @property string $name
- * @property string $email
- * @property string $phone
+ * @property string|null $email
+ * @property string|null $phone
  * @property string $subject
  * @property string $content
  * @property \Carbon\Carbon|null $created_at
@@ -202,6 +203,7 @@ namespace App{
  * @property int $id
  * @property int $user_id
  * @property string $title
+ * @property string $summary
  * @property string $content
  * @property int $price
  * @property \Carbon\Carbon|null $created_at
@@ -211,6 +213,7 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereSummary($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Plan whereUserId($value)
@@ -245,6 +248,36 @@ namespace App{
  *
  */
 	class RoleTitle extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Sample
+ *
+ * @property-read mixed $created_at
+ * @property-read mixed $updated_at
+ */
+	class Sample extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\Service
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $image
+ * @property string $content
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereUpdatedAt($value)
+ */
+	class Service extends \Eloquent {}
 }
 
 namespace App{

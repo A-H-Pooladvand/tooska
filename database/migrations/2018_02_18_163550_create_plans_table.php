@@ -17,7 +17,8 @@ class CreatePlansTable extends Migration
             $table->increments('id');
             $table->unsignedMediumInteger('user_id');
             $table->string('title', 40);
-            $table->string('content', 1000);
+            $table->string('summary', 500);
+            $table->string('content', 5000);
             $table->unsignedInteger('price');
             $table->timestamps();
 

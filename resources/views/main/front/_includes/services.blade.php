@@ -9,87 +9,20 @@
                 </div><!-- end title -->
 
                 <div class="seo-carousel owl-carousel owl-theme text-center">
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_01.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم </a></h4>
-                            <p>صنعت چاپ $50.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
 
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_02.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم</a></h4>
-                            <p>صنعت چاپ$20.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
+                    @foreach($services as $item)
+                        <div class="item">
+                            <div class="item-image">
+                                <img src="{{ image_url($item->image, 27,21, true) }}" alt="" class="img-responsive">
+                            </div>
+                            <div class="item-desc">
+                                <h4><a href="{{ route('service.show', $item->id) }}" title="{{ $item->title }}">{{ $item->title }} </a></h4>
+                            </div>
+                        </div>
+                    @endforeach
 
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_03.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم</a></h4>
-                            <p>صنعت چاپ $20.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
-
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_04.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم</a></h4>
-                            <p>صنعت چاپ $20.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
-
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_01.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم</a></h4>
-                            <p>صنعت چاپ $50.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
-
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_02.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم</a></h4>
-                            <p>صنعت چاپ $20.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
-
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_03.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم</a></h4>
-                            <p>صنعت چاپ $20.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
-
-                    <div class="item">
-                        <div class="item-image">
-                            <img src="{{ asset('custom/images/upload/seo_04.png') }}" alt="" class="img-responsive">
-                        </div><!-- end item-image -->
-                        <div class="item-desc">
-                            <h4><a href="single-service.html" title="">لورم ایپسوم</a></h4>
-                            <p>صنعت چاپ $20.00</p>
-                        </div><!-- end item-desc -->
-                    </div><!-- end seo-item -->
-                </div><!-- end seo-carousel -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->      
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

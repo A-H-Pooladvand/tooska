@@ -27,8 +27,8 @@
             <div class="col-md-8 text-right">
                 <ul class="list-inline">
                     <li><a href="{{ route('home') }}"><i class="fa fa-home"></i> صفحه اصلی</a></li>
-                    <li><a href="#">خدمات</a></li>
-                    <li><a href="#">نمومه کارها</a></li>
+                    <li><a href="{{ route('service.index') }}">خدمات</a></li>
+                    <li><a href="{{ route('sample.index') }}">نمومه کارها</a></li>
                     <li><a href="{{ route('blog.index') }}">بلاگ</a></li>
                     <li><a href="{{ route('about.show') }}">درباره ما</a></li>
                     <li><a href="{{ route('contact.show') }}">ارتباط با ما</a></li>

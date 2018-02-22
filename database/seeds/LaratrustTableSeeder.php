@@ -326,6 +326,56 @@ class LaratrustTableSeeder extends Seeder
                     ]
                 ]
             ],
+            [
+                'title' => 'سرویس',
+                'detail' => [
+                    [
+                        'name' => 'create-service',
+                        'display_name' => 'ایجاد سرویس',
+                        'description' => 'توانایی ایجاد سرویس',
+                    ],
+                    [
+                        'name' => 'read-service',
+                        'display_name' => 'مشاهده سرویس',
+                        'description' => 'توانایی مشاهده سرویس',
+                    ],
+                    [
+                        'name' => 'edit-service',
+                        'display_name' => 'ویرایش سرویس',
+                        'description' => 'توانایی ویرایش سرویس',
+                    ],
+                    [
+                        'name' => 'delete-service',
+                        'display_name' => 'حذف سرویس',
+                        'description' => 'توانایی حذف سرویس',
+                    ]
+                ]
+            ],
+            [
+                'title' => 'نمونه کار',
+                'detail' => [
+                    [
+                        'name' => 'create-sample',
+                        'display_name' => 'ایجاد نمونه کار',
+                        'description' => 'توانایی ایجاد نمونه کار',
+                    ],
+                    [
+                        'name' => 'read-sample',
+                        'display_name' => 'مشاهده نمونه کار',
+                        'description' => 'توانایی مشاهده نمونه کار',
+                    ],
+                    [
+                        'name' => 'edit-sample',
+                        'display_name' => 'ویرایش نمونه کار',
+                        'description' => 'توانایی ویرایش نمونه کار',
+                    ],
+                    [
+                        'name' => 'delete-sample',
+                        'display_name' => 'حذف نمونه کار',
+                        'description' => 'توانایی حذف نمونه کار',
+                    ]
+                ]
+            ],
         ];
 
         foreach ($permissions as $permission) {

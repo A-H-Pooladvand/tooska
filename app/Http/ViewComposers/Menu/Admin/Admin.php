@@ -70,6 +70,22 @@ return [
         ]
     ],
     [
+        // Service
+        'title' => 'سرویس',
+        'icon' => 'fa fa-fw fa-shield',
+        'link' => '#',
+        'sub' => [
+            [
+                'title' => 'افزودن سرویس',
+                'link' => route('admin.service.create')
+            ],
+            [
+                'title' => 'لیست سرویس ها',
+                'link' => route('admin.service.index')
+            ]
+        ]
+    ],
+    [
         // Blog
         'title' => 'بلاگ',
         'icon' => 'fa fa-fw fa-newspaper-o',
@@ -82,6 +98,22 @@ return [
             [
                 'title' => 'لیست اخبار بلاگ',
                 'link' => route('admin.blog.index')
+            ]
+        ]
+    ],
+    [
+        // Sample
+        'title' => 'نمونه کار',
+        'icon' => 'fa fa-fw fa-magic',
+        'link' => '#',
+        'sub' => [
+            [
+                'title' => 'افزودن نمونه کار',
+                'link' => route('admin.sample.create'),
+            ],
+            [
+                'title' => 'لیست نمونه کارها',
+                'link' => route('admin.sample.index')
             ]
         ]
     ],

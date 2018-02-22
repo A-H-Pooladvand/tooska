@@ -218,4 +218,58 @@ Breadcrumbs::register('contact-show', function ($breadcrumbs, $contact) {
     $breadcrumbs->push('مشاهده تماس', route('admin.contact.contacts.show', $contact->id));
 });
 
+/**
+ * Service
+ */
+
+// Services
+Breadcrumbs::register('services', function ($breadcrumbs) {
+    $breadcrumbs->push('لیست سرویس', route('admin.service.index'));
+});
+
+// Service > Create
+Breadcrumbs::register('service-create', function ($breadcrumbs) {
+    $breadcrumbs->parent('services');
+    $breadcrumbs->push('افزودن سرویس', route('admin.service.create'));
+});
+
+// Service > Show
+Breadcrumbs::register('service-show', function ($breadcrumbs, $service) {
+    $breadcrumbs->parent('services');
+    $breadcrumbs->push('مشاهده سرویس', route('admin.service.show', $service->id));
+});
+
+// Services > Show > Edit
+Breadcrumbs::register('service-edit', function ($breadcrumbs, $service) {
+    $breadcrumbs->parent('service-show', $service);
+    $breadcrumbs->push('ویرایش سرویس', route('admin.service.edit', $service->id));
+});
+
+/**
+ * Sample
+ */
+
+// Samples
+Breadcrumbs::register('samples', function ($breadcrumbs) {
+    $breadcrumbs->push('لیست نمونه کارها', route('admin.sample.index'));
+});
+
+// Service > Create
+Breadcrumbs::register('sample-create', function ($breadcrumbs) {
+    $breadcrumbs->parent('samples');
+    $breadcrumbs->push('افزودن نمونه کار', route('admin.sample.create'));
+});
+
+// Service > Show
+Breadcrumbs::register('sample-show', function ($breadcrumbs, $sample) {
+    $breadcrumbs->parent('samples');
+    $breadcrumbs->push('مشاهده نمونه کار', route('admin.sample.show', $sample->id));
+});
+
+// Samples > Show > Edit
+Breadcrumbs::register('sample-edit', function ($breadcrumbs, $sample) {
+    $breadcrumbs->parent('sample-show', $sample);
+    $breadcrumbs->push('ویرایش نمونه کار', route('admin.sample.edit', $sample->id));
+});
+
 

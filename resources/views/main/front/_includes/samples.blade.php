@@ -7,101 +7,19 @@
         </div><!-- end title -->
 
         <div class="seo-studio owl-carousel owl-theme text-center">
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_01.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
 
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_02.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
+            @foreach($samples as $item)
+                <div class="item">
+                    <div class="case-studio">
+                        <div class="post-media">
+                            <a href="{{ route('sample.show', $item->id) }}">
+                                <img src="{{ image_url($item->image, 22,28,true) }}" alt="" class="img-responsive">
+                            </a>
+                        </div><!-- end media -->
+                    </div><!-- end case -->
+                </div><!-- end col -->
+            @endforeach
 
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_03.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_04.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_05.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_06.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_01.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_02.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_03.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_04.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_05.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
-
-            <div class="item">
-                <div class="case-studio">
-                    <div class="post-media">
-                        <a href="single-portfolio.html"><img src="{{ asset('custom/images/upload/case_06.png') }}" alt="" class="img-responsive"></a>
-                    </div><!-- end media -->
-                </div><!-- end case -->
-            </div><!-- end col -->
         </div><!-- end row -->
-    </div><!-- end container -->          
+    </div><!-- end container -->
 </section>
