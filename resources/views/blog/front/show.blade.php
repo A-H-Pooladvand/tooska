@@ -1,6 +1,5 @@
-@include ('public.header')
-@include ('public.menu')
-@include ('blog.front._includes.blog_heading_image')
-@include ('blog.front._includes.single-blog_contents')
-@include ('public.footer')
-@include ('public.ending')
+@extends('_layouts.front.index')
+@section('content')
+    @include ('blog.front._includes.heading')
+    @include ('blog.front._includes.show-content')
+@stop

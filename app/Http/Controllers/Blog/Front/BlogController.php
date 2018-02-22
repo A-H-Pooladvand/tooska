@@ -10,7 +10,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('user')->latest()->paginate(10);
+        $blogs = Blog::with('category', 'tags')->latest()->paginate(10);
+
         return view('blog.front.index', compact('blogs'));
     }
 

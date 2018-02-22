@@ -2,6 +2,7 @@
 
 use App\Blog;
 use App\Category;
+use App\Tag;
 use App\User;
 use Faker\Generator as Faker;
 

@@ -1,4 +1,10 @@
 <!doctype html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="{{ config('app.locale') }}> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="{{ config('app.locale') }}> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="{{ config('app.locale') }}> <![endif]-->
 <html lang="{{ config('app.locale') }}">
 
 <head>
@@ -9,21 +15,25 @@
 
 <body>
 
-<header>
-    @include('_layouts.front.includes.header')
-</header>
+<div id="wrapper">
 
-<section>
-    @yield('content')
-</section>
+    <header>
+        @include('_layouts.front.includes.header')
+    </header>
 
-<footer>
-    @include('_layouts.front.includes.footer')
-</footer>
+    <section>
+        @yield('content')
+    </section>
 
-@include('_layouts.front.includes.scripts')
-@stack('page-scripts')
-@stack('scripts')
+    <footer>
+        @include('_layouts.front.includes.footer')
+    </footer>
+
+    @include('_layouts.front.includes.scripts')
+    @stack('page-scripts')
+    @stack('scripts')
+
+</div>
 </body>
 
 </html>

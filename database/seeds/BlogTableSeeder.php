@@ -1,6 +1,7 @@
 <?php
 
 use App\Blog;
+use App\Tag;
 use Illuminate\Database\Seeder;
 
 class BlogTableSeeder extends Seeder

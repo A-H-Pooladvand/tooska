@@ -8,6 +8,11 @@ class Category extends Model
 {
     protected $guarded = ['id'];
 
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'category_id');
+    }
+
     public function categoryTypes()
     {
         return [
